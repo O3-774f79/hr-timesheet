@@ -15,8 +15,10 @@ import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
-import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
 import TravelReq from './views/TravelReq'
+import TravelInbox from './views/TravelInbox'
+import UseCar from './views/UseCar'
+import Allowances from './views/Allowances'
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.jsx";
 
@@ -30,11 +32,35 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
+    path: "/TravelInbox",
+    name: "ข้อมูลการเดินทาง",
+    rtlName: "لوحة القيادة",
+    icon: LibraryBooks,
+    component: TravelInbox,
+    layout: "/admin"
+  }, 
+  {
     path: "/TravelReq",
     name: "แบบคำขอเดินทาง",
     rtlName: "لوحة القيادة",
-    icon: Dashboard,
+    icon: LibraryBooks,
     component: TravelReq,
+    layout: "/admin"
+  },
+  {
+    path: "/useCar",
+    name: "เบิกชดเชยการใข้รถส่วนตัวในกิจการบริษัท",
+    rtlName: "لوحة القيادة",
+    icon: LibraryBooks,
+    component: UseCar,
+    layout: "/admin"
+  },
+  {
+    path: "/Allowances",
+    name: "เบิกเบี้ยเลี้ยงภายใน และต่างประเทศ",
+    rtlName: "لوحة القيادة",
+    icon: LibraryBooks,
+    component: Allowances,
     layout: "/admin"
   },
   {
@@ -83,14 +109,6 @@ const dashboardRoutes = [
     rtlName: "إخطارات",
     icon: Notifications,
     component: NotificationsPage,
-    layout: "/admin"
-  },
-  {
-    path: "/upgrade-to-pro",
-    name: "Upgrade To PRO",
-    rtlName: "التطور للاحترافية",
-    icon: Unarchive,
-    component: UpgradeToPro,
     layout: "/admin"
   },
   {
