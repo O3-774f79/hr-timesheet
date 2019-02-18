@@ -1,4 +1,9 @@
 import React from "react";
+//@antD component
+import 'antd/dist/antd.css';
+import {
+  Table, Input, Popconfirm, Form, Modal, Steps, Icon,
+} from 'antd';
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -18,6 +23,7 @@ import DataTable from './Table'
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import Modalform3 from "./Modalform3";
 
 const styles = {
   cardCategoryWhite: {
@@ -53,8 +59,34 @@ const styles = {
   }
 };
 
-function FormReq(props) {
-  const { classes } = props;
+class FormReq extends React.Component{
+
+  state = { visible: false }
+
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
+
+  handleOk = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
+
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
+
+
+  render()
+  {const { classes } = this.props;
   return (
     <div>
       <GridContainer>
@@ -229,7 +261,16 @@ function FormReq(props) {
             </CardBody>
             <CardFooter>
                 <div className={classes.positionButton}>
-              <Button className={classes.buttonSubmit}>ตกลง</Button>
+                <Button className={classes.buttonSubmit} onClick={this.showModal} >ตกลง</Button>
+              <Modal
+              style={{marginLeft:"15%" ,marginTop:"10"}}
+            
+              width="75%"
+              visible={this.state.visible}
+              onOk={this.handleOk}
+              onCancel={this.handleCancel}
+              
+              ><Modalform3 /> </Modal>
               </div>
             </CardFooter>
           </Card>
@@ -238,5 +279,5 @@ function FormReq(props) {
     </div>
   );
 }
-
+}
 export default withStyles(styles)(FormReq);

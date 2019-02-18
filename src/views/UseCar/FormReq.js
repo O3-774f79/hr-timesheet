@@ -1,4 +1,9 @@
 import React from "react";
+//@antD component
+import 'antd/dist/antd.css';
+import {
+  Table, Input, Popconfirm, Form, Modal, Steps, Icon,
+} from 'antd';
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -17,6 +22,7 @@ import TextField from '@material-ui/core/TextField';
 import DataTable from './Table'
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
+import Modalform2 from "./Modalform2";
 
 
 const styles = {
@@ -54,8 +60,36 @@ const styles = {
   }
 };
 
-function FormReq(props) {
-  const { classes } = props;
+class FormReq extends React.Component{
+
+  
+  state = { visible: false }
+
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
+
+  handleOk = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
+
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
+
+  render(){
+
+  
+  const { classes } = this.props;
   return (
     <div>
       <GridContainer>
@@ -90,7 +124,7 @@ function FormReq(props) {
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -106,7 +140,7 @@ function FormReq(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -122,7 +156,7 @@ function FormReq(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
               </GridContainer>
@@ -141,7 +175,7 @@ function FormReq(props) {
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -157,7 +191,7 @@ function FormReq(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -173,7 +207,7 @@ function FormReq(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
               </GridContainer>
@@ -188,7 +222,7 @@ function FormReq(props) {
                       id="date"
                       label="เลขที่ทะเบียนรถ"
                       type="text"
-                      variant="outlined"
+                      
                       fullWidth
                       className={classes.textField}
                   />
@@ -201,7 +235,7 @@ function FormReq(props) {
                       id="date"
                       label="ระยะทางไปกลับ"
                       type="text"
-                      variant="outlined"     
+                           
                       fullWidth            
                       className={classes.textField}
                   />
@@ -224,7 +258,16 @@ function FormReq(props) {
             </CardBody>
             <CardFooter>
                 <div className={classes.positionButton}>
-              <Button className={classes.buttonSubmit}>ตกลง</Button>
+                <Button className={classes.buttonSubmit} onClick={this.showModal} >ตกลง</Button>
+              <Modal
+              style={{marginLeft:"15%" ,marginTop:"10"}}
+            
+              width="75%"
+              visible={this.state.visible}
+              onOk={this.handleOk}
+              onCancel={this.handleCancel}
+              
+              ><Modalform2 /> </Modal>
               </div>
             </CardFooter>
           </Card>
@@ -233,5 +276,5 @@ function FormReq(props) {
     </div>
   );
 }
-
+}
 export default withStyles(styles)(FormReq);

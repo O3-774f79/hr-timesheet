@@ -22,8 +22,10 @@ import TextField from '@material-ui/core/TextField';
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import Modalform from "./Modalform";
+import Table2 from './Table2'
 
+
+const Step = Steps.Step;
 
 const styles = {
   cardCategoryWhite: {
@@ -60,46 +62,26 @@ const styles = {
   }
 };
 
-
-
-class FormReq extends React.Component{
-  
-  state = { visible: false }
-
-
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  }
-
-  handleOk = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  }
-
-  handleCancel = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  }
-
-  render(){
-  
-  
-  const { classes } = this.props;
+function Modalform2(props) {
+  const { classes } = props;
   return (
     <div>
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
+           
               <h3 className={classes.cardTitleWhite}>การขอเดินทาง</h3>
               {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>
+            <CardBody>
+            <Steps>
+    <Step status="finish" title="Login" icon={<Icon type="user" />} />
+    <Step status="finish" title="Verification" icon={<Icon type="solution" />} />
+    <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
+  </Steps>
+  </CardBody>
+  
             <CardBody>
             <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
@@ -125,7 +107,7 @@ class FormReq extends React.Component{
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -141,7 +123,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -157,7 +139,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
               </GridContainer>
@@ -175,7 +157,7 @@ class FormReq extends React.Component{
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -191,7 +173,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -207,7 +189,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
               </GridContainer>
@@ -238,7 +220,7 @@ class FormReq extends React.Component{
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -254,7 +236,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
               </GridContainer>
@@ -267,7 +249,7 @@ class FormReq extends React.Component{
                     id="date"
                     label="Birthday"
                     type="date"
-                    
+                    variant="outlined"
                     fullWidth
                     defaultValue=""
                     className={classes.textField}
@@ -284,7 +266,7 @@ class FormReq extends React.Component{
                     id="date"
                     label="Birthday"
                     type="date"
-                    
+                    variant="outlined"
                     fullWidth
                     defaultValue=""
                     className={classes.textField}
@@ -304,7 +286,7 @@ class FormReq extends React.Component{
                         // label="เวลาเริ่มต้น"
                         type="time"
                         // defaultValue="07:30"
-                        
+                        variant="outlined"
                         fullWidth
                         className={classes.textField}
                         InputLabelProps={{
@@ -324,7 +306,7 @@ class FormReq extends React.Component{
                     // label="เวลาสิ้นสุด"
                     type="time"
                     // defaultValue="07:30"
-                    
+                    variant="outlined"
                     fullWidth
                     className={classes.textField}
                     InputLabelProps={{
@@ -350,7 +332,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -366,7 +348,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
               </GridContainer>
@@ -384,7 +366,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
@@ -400,7 +382,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
               </GridContainer>
@@ -418,7 +400,7 @@ class FormReq extends React.Component{
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    
+                    variant="outlined"
                     />
                 </GridItem>
               </GridContainer>
@@ -426,18 +408,13 @@ class FormReq extends React.Component{
                 </GridItem>
               </GridContainer>
             </CardBody>
+            <CardBody>
+                    <Table2 />
+
+            </CardBody>
             <CardFooter>
                 <div className={classes.positionButton}>
-              <Button className={classes.buttonSubmit} onClick={this.showModal} >ตกลง</Button>
-              <Modal
-              style={{marginLeft:"15%" ,marginTop:"10"}}
-            
-              width="75%"
-              visible={this.state.visible}
-              onOk={this.handleOk}
-              onCancel={this.handleCancel}
-              
-              ><Modalform /> </Modal>
+              <Button className={classes.buttonSubmit}>ตกลง</Button>
               </div>
             </CardFooter>
           </Card>
@@ -446,5 +423,5 @@ class FormReq extends React.Component{
     </div>
   );
 }
-}
-export default withStyles(styles)(FormReq);
+
+export default withStyles(styles)(Modalform2);

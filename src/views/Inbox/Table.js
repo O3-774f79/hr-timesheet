@@ -6,6 +6,11 @@ import {
   Table, Input, Button, Popconfirm, Form,
 } from 'antd';
 
+
+import Delete from "@material-ui/icons/Delete";
+import Description from "@material-ui/icons/Description";
+import Done from "@material-ui/icons/Done";
+
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
@@ -116,26 +121,40 @@ export default class EditableTable extends React.Component {
   constructor(props) {
     super(props);
     this.columns = [{
-      title: 'name',
-      dataIndex: 'name',
-      width: '30%',
+      title: 'หมายเลข',
+      dataIndex: 'id',
+      width: '10%',
       editable: true,
     }, {
-      title: 'age',
-      dataIndex: 'age',
+      title: 'เรื่อง',
+      dataIndex: 'topic',
+      width: '15%',
     }, {
-      title: 'address',
-      dataIndex: 'address',
-    }, {
+      title: 'วันที่ขอ',
+      dataIndex: 'startdate',
+      width: '15%',
+    },{
+      title: 'วันที่สิ้นสุด',
+      dataIndex: 'enddate',
+      width: '15%',
+    },{
+      title: 'ผู้ขอ',
+      dataIndex: 'requester',
+      width: '15%',
+    },{
+      title: 'ผู้อนุมัติ',
+      dataIndex: 'approver',
+      width: '15%',
+    },
+     {
       title: 'operation',
       dataIndex: 'operation',
-      render: (text, record) => (
-        this.state.dataSource.length >= 1
-          ? (
-            <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-              <a href="javascript:;">Delete</a>
-            </Popconfirm>
-          ) : null
+      width: '15%',
+      render: (text, record) => ([
+      <Button ><Done /></Button>,
+      <Button ><Description /></Button>,
+      <Button ><Delete /></Button>]
+        
       ),
     }];
 
