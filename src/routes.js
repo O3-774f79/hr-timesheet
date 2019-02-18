@@ -19,6 +19,7 @@ import TravelReq from './views/TravelReq'
 import TravelInbox from './views/TravelInbox'
 import UseCar from './views/UseCar'
 import Allowances from './views/Allowances'
+import Inbox from './views/Inbox'
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.jsx";
 
@@ -29,6 +30,14 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: DashboardPage,
+    layout: "/admin"
+  },
+  {
+    path: "/inbox",
+    name: "Inbox",
+    rtlName: "لوحة القيادة",
+    icon: Dashboard,
+    component: Inbox,
     layout: "/admin"
   },
   {

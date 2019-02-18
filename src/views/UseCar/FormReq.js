@@ -126,6 +126,7 @@ function FormReq(props) {
                     />
                 </GridItem>
               </GridContainer>
+              
               <GridContainer>
               <GridItem xs={12} sm={12} md={1}>
                 <h5 className={classes.label}>ฝ่าย :</h5>
@@ -176,14 +177,10 @@ function FormReq(props) {
                     />
                 </GridItem>
               </GridContainer>
-                </CardBody>           
-                </GridItem>
-              </GridContainer>
               <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
-                <CardBody>
                 <GridContainer>
-                  <GridItem xs={12} sm={12} md={1}>
+                  <GridItem xs={12} sm={12} md={2}>
                   <h5 className={classes.label}>เลขที่ทะเบียนรถ :</h5>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
@@ -196,23 +193,27 @@ function FormReq(props) {
                       className={classes.textField}
                   />
                   </GridItem>
-                  <GridItem xs={12} sm={12} md={2}>
+                  <GridItem xs={12} sm={12} md={3}>
                   <h5 className={classes.label}>ระยะทางไปกลับ(บริษัท-บ้าน)</h5>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={2}>
                   <TextField
                       id="date"
-                      label="ระยะทางไปกลับ(บริษัท-บ้าน)"
+                      label="ระยะทางไปกลับ"
                       type="text"
                       variant="outlined"     
                       fullWidth            
                       className={classes.textField}
                   />
                   </GridItem>
-                </GridContainer>         
+                </GridContainer>                  
+                </GridItem>
+              </GridContainer>
                 </CardBody>           
                 </GridItem>
               </GridContainer>
+              
+             
               <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
                 <CardBody>

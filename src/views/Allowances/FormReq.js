@@ -38,7 +38,6 @@ const styles = {
   },
   label:{
     float: "right",
-    marginTop:30
   },
   headerAppBar:{
     backgroundColor: "rgb(255, 230, 204)",
@@ -74,108 +73,100 @@ function FormReq(props) {
                        <PersonPinIcon /> พนักงาน
                     </Typography>
                     </Toolbar>
-                </AppBar>
-                <CardBody>
-                <GridContainer>
-                <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>รหัสพนักงาน</h5>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                <TextField
-                    id="outlined-email-input"
-                    label="รหัสพนักงาน"
-                    className={classes.textField}
-                    type="email"
-                    fullWidth
-                    name="email"
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                    />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ชื่อ :</h5>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                <TextField
-                    id="outlined-email-input"
-                    label="ชื่อ"
-                    className={classes.textField}
-                    type="email"
-                    name="email"
-                    fullWidth
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                    />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ชื่อสกุล :</h5>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                <TextField
-                    id="outlined-email-input"
-                    label="ชื่อสกุล"
-                    className={classes.textField}
-                    type="email"
-                    name="email"
-                    fullWidth
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                    />
+                </AppBar>          
                 </GridItem>
               </GridContainer>
               <GridContainer>
-              <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ฝ่าย :</h5>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                <TextField
-                    id="outlined-email-input"
-                    label="ฝ่าย"
-                    className={classes.textField}
-                    type="email"
-                    fullWidth
-                    name="email"
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                    />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>แผนก :</h5>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                <TextField
-                    id="outlined-email-input"
-                    label="แผนก"
-                    className={classes.textField}
-                    type="email"
-                    name="email"
-                    fullWidth
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                    />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ระดับ :</h5>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                <TextField
-                    id="outlined-email-input"
-                    label="ระดับ"
-                    className={classes.textField}
-                    type="email"
-                    name="email"
-                    fullWidth
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                    />
+              <GridItem xs={12} sm={12} md={12}>
+                <CardBody>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h5 className={classes.label}>รหัสพนักงาน</h5>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={3}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"
+                      fullWidth
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h5 className={classes.label}>ชื่อ</h5>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={3}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"     
+                      fullWidth          
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h5 className={classes.label}>ชื่อสกุล</h5>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={3}>
+                  <TextField
+                      id="date"
+                      label=""
+                      fullWidth
+                      type="text"                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                </GridContainer>         
+                </CardBody>           
                 </GridItem>
               </GridContainer>
+              <GridContainer>
+              <GridItem xs={12} sm={12} md={12}>
+                <CardBody>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h5 className={classes.label}>ฝ่าย</h5>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={3}>
+                  <TextField
+                      id="date"
+                      label="ฝ่าย"
+                      type="text"
+                      fullWidth
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h5 className={classes.label}>แผนก</h5>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={3}>
+                  <TextField
+                      id="date"
+                      label="แผนก"
+                      type="text"     
+                      fullWidth          
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h5 className={classes.label}>ระดับ</h5>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={3}>
+                  <TextField
+                      id="date"
+                      label="ระดับ"
+                      fullWidth
+                      type="text"                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                </GridContainer>         
                 </CardBody>           
                 </GridItem>
               </GridContainer>
@@ -191,7 +182,6 @@ function FormReq(props) {
                       id="date"
                       label=""
                       type="date"
-                      variant="outlined"
                       fullWidth
                       defaultValue=""
                       className={classes.textField}
@@ -207,8 +197,7 @@ function FormReq(props) {
                   <TextField
                       id="date"
                       label=""
-                      type="date"
-                      variant="outlined"                 
+                      type="date"               
                       defaultValue=""
                       className={classes.textField}
                   />
@@ -220,8 +209,7 @@ function FormReq(props) {
                   <TextField
                       id="date"
                       label=""
-                      type="text"
-                      variant="outlined"                 
+                      type="text"                 
                       defaultValue=""
                       className={classes.textField}
                   />
