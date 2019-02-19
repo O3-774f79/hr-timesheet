@@ -95,7 +95,7 @@ class FormReq extends React.Component{
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
               <h3 className={classes.cardTitleWhite}>การเบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท</h3>
               {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>
@@ -112,7 +112,7 @@ class FormReq extends React.Component{
                 <CardBody>
                 <GridContainer>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>รหัสพนักงาน</h5>
+                <h7 className={classes.label}>รหัสพนักงาน</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -128,7 +128,7 @@ class FormReq extends React.Component{
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ชื่อ :</h5>
+                <h7 className={classes.label}>ชื่อ :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -144,7 +144,7 @@ class FormReq extends React.Component{
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ชื่อสกุล :</h5>
+                <h7 className={classes.label}>ชื่อสกุล :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -163,12 +163,12 @@ class FormReq extends React.Component{
               
               <GridContainer>
               <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ฝ่าย :</h5>
+                <h7 className={classes.label}>ระดับ :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
                     id="outlined-email-input"
-                    label="ฝ่าย"
+                    label="ระดับ"
                     className={classes.textField}
                     type="email"
                     fullWidth
@@ -179,7 +179,7 @@ class FormReq extends React.Component{
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>แผนก :</h5>
+                <h7 className={classes.label}>แผนก :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -195,7 +195,7 @@ class FormReq extends React.Component{
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>สายงาน :</h5>
+                <h7 className={classes.label}>สายงาน :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -215,7 +215,7 @@ class FormReq extends React.Component{
               <GridItem xs={12} sm={12} md={12}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={2}>
-                  <h5 className={classes.label}>เลขที่ทะเบียนรถ :</h5>
+                  <h7 className={classes.label}>เลขที่ทะเบียนรถ :</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
@@ -228,7 +228,7 @@ class FormReq extends React.Component{
                   />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
-                  <h5 className={classes.label}>ระยะทางไปกลับ(บริษัท-บ้าน)</h5>
+                  <h7 className={classes.label}>ระยะทางไปกลับ(บริษัท-บ้าน)</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={2}>
                   <TextField
@@ -246,8 +246,39 @@ class FormReq extends React.Component{
                 </CardBody>           
                 </GridItem>
               </GridContainer>
-              
-             
+              <hr />
+              <GridContainer>
+              <GridItem xs={12} sm={12} md={12}>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={2}>
+                  <h7 className={classes.label}>จำนวนระยะทางรวม :</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={2}>
+                  <TextField
+                      id="date"
+                      label="จำนวนระยะทางรวม"
+                      type="text"
+                      
+                      fullWidth
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={3}>
+                  <h7 className={classes.label}>การคำนวณเงินช่วยเหลือค่าพาหนะ ( 6 บาท / กิโลเมตร )</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={2}>
+                  <TextField
+                      id="date"
+                      label="เงินช่วยเหลือค่าพาหนะ"
+                      type="text"
+                           
+                      fullWidth            
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                </GridContainer>                  
+                </GridItem>
+              </GridContainer>
               <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
                 <CardBody>
@@ -256,9 +287,8 @@ class FormReq extends React.Component{
                 </GridItem>
               </GridContainer>
             </CardBody>
-            <CardFooter>
-                <div className={classes.positionButton}>
-                <Button className={classes.buttonSubmit} onClick={this.showModal} >ตกลง</Button>
+            <CardFooter className={classes.positionButton}>
+                <Button color="success"className={classes.buttonSubmit} onClick={this.showModal} >ตกลง</Button>
               <Modal
               style={{marginLeft:"15%" ,marginTop:"10"}}
             
@@ -268,7 +298,6 @@ class FormReq extends React.Component{
               onCancel={this.handleCancel}
               
               ><Modalform2 /> </Modal>
-              </div>
             </CardFooter>
           </Card>
         </GridItem>

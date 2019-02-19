@@ -141,11 +141,12 @@ export default class EditableTable extends React.Component {
       title: 'ผู้ขอ',
       dataIndex: 'requester',
       width: '15%',
-    },{
-      title: 'ผู้อนุมัติ',
-      dataIndex: 'approver',
-      width: '15%',
     },
+    // {
+    //   title: 'ผู้อนุมัติ',
+    //   dataIndex: 'approver',
+    //   width: '15%',
+    // },
      {
       title: 'operation',
       dataIndex: 'operation',
@@ -161,14 +162,18 @@ export default class EditableTable extends React.Component {
     this.state = {
       dataSource: [{
         key: '0',
-        name: 'Edward King 0',
-        age: '32',
-        address: 'London, Park Lane no. 0',
+        id: 'BRT-6200001',
+        topic: 'เบิกเบี้ยเลี้ยงภายในประเทศและต่างประเทศ',
+        startdate: '15/02/2562',
+        enddate: '',
+        requester: 'นาย อนันต์ชัย พหุพงศ์ทรัพย์',
       }, {
         key: '1',
-        name: 'Edward King 1',
-        age: '32',
-        address: 'London, Park Lane no. 1',
+        id: 'BRT-6200002',
+        topic: 'เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท',
+        startdate: '15/02/2562',
+        enddate: '',
+        requester: 'นาย อนันต์ชัย พหุพงศ์ทรัพย์',
       }],
       count: 2,
       selectedRowKeys: [],
@@ -272,8 +277,11 @@ export default class EditableTable extends React.Component {
     };
     return (
       <div>
-        <Button onClick={this.handleAdd} type="primary" style={{ marginBottom: 16 }}>
-          Add a row
+        <Button onClick={this.handleAdd} type="succress" style={{ marginBottom: 16 }}>
+          อนุมัติ
+        </Button>
+        <Button onClick={this.handleAdd} type="danger" style={{ marginBottom: 16 }}>
+          ไม่อนุมัติ
         </Button>
         <Table
           rowSelection={rowSelection}

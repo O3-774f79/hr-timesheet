@@ -53,7 +53,7 @@ function FormReq(props) {
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
               <h3 className={classes.cardTitleWhite}>ข้อมูลการเดินทาง</h3>
               {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>

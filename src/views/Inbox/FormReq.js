@@ -41,16 +41,13 @@ function UserProfile(props) {
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Inbox</h4>
+            <CardHeader color="info">
+              <h3 className={classes.cardTitleWhite}>Inbox</h3>
               <p className={classes.cardCategoryWhite}></p>
             </CardHeader>
             <CardBody>
              <DataTable />
             </CardBody>
-            <CardFooter>
-              <Button color="primary">Update Profile</Button>
-            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>

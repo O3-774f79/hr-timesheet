@@ -137,18 +137,23 @@ export default class EditableTable extends React.Component {
       }, 
       
     ];
-
     this.state = {
       dataSource: [{
         key: '0',
-        name: 'Edward King 0',
-        age: '32',
-        address: 'London, Park Lane no. 0',
+        id: 'BRT-6200123',
+        topic: 'เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท',
+        startdate: '18/01/2562',
+        enddate: '18/01/2562',
+        status: 'รอการอนุมัติ',
+        cde: "D"
       }, {
-        key: '1',
-        name: 'Edward King 1',
-        age: '32',
-        address: 'London, Park Lane no. 1',
+        key: '0',
+        id: 'BRT-6200123',
+        topic: 'เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท',
+        startdate: '18/03/2562',
+        enddate: '18/03/2562',
+        status: 'รอการอนุมัติ',
+        cde: "D"
       }],
       count: 2,
     };
@@ -209,14 +214,14 @@ export default class EditableTable extends React.Component {
     });
     return (
       <div>
-        <Button onClick={this.handleAdd} type="primary" style={{ marginBottom: 16 }}>
-          Add a row
-        </Button>
+        <div>
+        <Input size="large" placeholder="Search" style={{width: "300px", marginBottom:5}}/><Button shape="circle" icon="search" />
+        </div>    
         <Table
           components={components}
           rowClassName={() => 'editable-row'}
           bordered
-          dataSource={data}
+          dataSource={dataSource}
           columns={columns}
         />
       </div>

@@ -8,30 +8,25 @@ import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
-import DashboardPage from "views/Dashboard/Dashboard.jsx";
-import UserProfile from "views/UserProfile/UserProfile.jsx";
-import TableList from "views/TableList/TableList.jsx";
-import Typography from "views/Typography/Typography.jsx";
-import Icons from "views/Icons/Icons.jsx";
-import Maps from "views/Maps/Maps.jsx";
-import NotificationsPage from "views/Notifications/Notifications.jsx";
 import TravelReq from './views/TravelReq'
 import TravelInbox from './views/TravelInbox'
 import UseCar from './views/UseCar'
 import Allowances from './views/Allowances'
 import Inbox from './views/Inbox'
+import Setting from './views/Setting'
+import DashboardPage from './views/Dashboard/Dashboard'
 // core components/views for RTL layout
-import RTLPage from "views/RTLPage/RTLPage.jsx";
+
 
 const dashboardRoutes = [
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: DashboardPage,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/dashboard",
+  //   name: "Dashboard",
+  //   rtlName: "لوحة القيادة",
+  //   icon: Dashboard,
+  //   component: DashboardPage,
+  //   layout: "/admin"
+  // },
   {
     path: "/inbox",
     name: "Inbox",
@@ -41,7 +36,7 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/TravelInbox",
+    path: "/travelInbox",
     name: "ข้อมูลการเดินทาง",
     rtlName: "لوحة القيادة",
     icon: LibraryBooks,
@@ -49,7 +44,7 @@ const dashboardRoutes = [
     layout: "/admin"
   }, 
   {
-    path: "/TravelReq",
+    path: "/travelReq",
     name: "แบบคำขอเดินทาง",
     rtlName: "لوحة القيادة",
     icon: LibraryBooks,
@@ -65,7 +60,7 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/Allowances",
+    path: "/allowances",
     name: "เบิกเบี้ยเลี้ยงภายใน และต่างประเทศ",
     rtlName: "لوحة القيادة",
     icon: LibraryBooks,
@@ -73,61 +68,13 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/user",
-    name: "User Profile",
-    rtlName: "ملف تعريفي للمستخدم",
-    icon: Person,
-    component: UserProfile,
-    layout: "/admin"
-  },
-  {
-    path: "/table",
-    name: "Table List",
-    rtlName: "قائمة الجدول",
-    icon: "content_paste",
-    component: TableList,
-    layout: "/admin"
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    rtlName: "طباعة",
+    path: "/setting",
+    name: "ข้อมูลส่วนกลาง",
+    rtlName: "لوحة القيادة",
     icon: LibraryBooks,
-    component: Typography,
+    component: Setting,
     layout: "/admin"
   },
-  {
-    path: "/icons",
-    name: "Icons",
-    rtlName: "الرموز",
-    icon: BubbleChart,
-    component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    rtlName: "خرائط",
-    icon: LocationOn,
-    component: Maps,
-    layout: "/admin"
-  },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    rtlName: "إخطارات",
-    icon: Notifications,
-    component: NotificationsPage,
-    layout: "/admin"
-  },
-  {
-    path: "/rtl-page",
-    name: "RTL Support",
-    rtlName: "پشتیبانی از راست به چپ",
-    icon: Language,
-    component: RTLPage,
-    layout: "/rtl"
-  }
 ];
 
 export default dashboardRoutes;

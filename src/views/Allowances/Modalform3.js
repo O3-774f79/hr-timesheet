@@ -69,15 +69,15 @@ function Modalform3(props) {
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
            
-              <h3 className={classes.cardTitleWhite}>การขอเดินทาง</h3>
+              <h3 className={classes.cardTitleWhite}>การเบิกเบี้ยเลี้ยงภายในและต่างประเทศ</h3>
               {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>
             <CardBody>
             <Steps>
-    <Step status="finish" title="Login" icon={<Icon type="user" />} />
-    <Step status="finish" title="Verification" icon={<Icon type="solution" />} />
+    <Step status="finish" title="Emp" icon={<Icon type="user" />} />
+    <Step status="finish" title="Manager" icon={<Icon type="solution" />} />
     <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
   </Steps>
   </CardBody>
@@ -95,7 +95,7 @@ function Modalform3(props) {
                 <CardBody>
                 <GridContainer>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>รหัสพนักงาน</h5>
+                <h7 className={classes.label}>รหัสพนักงาน</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -107,11 +107,11 @@ function Modalform3(props) {
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ชื่อ :</h5>
+                <h7 className={classes.label}>ชื่อ :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -123,11 +123,11 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ชื่อสกุล :</h5>
+                <h7 className={classes.label}>ชื่อสกุล :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -139,13 +139,13 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
               </GridContainer>
               <GridContainer>
               <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ฝ่าย :</h5>
+                <h7 className={classes.label}>ฝ่าย :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -157,11 +157,11 @@ function Modalform3(props) {
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>แผนก :</h5>
+                <h7 className={classes.label}>แผนก :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -173,11 +173,11 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ระดับ :</h5>
+                <h7 className={classes.label}>ระดับ :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -189,7 +189,7 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
               </GridContainer>
@@ -208,7 +208,7 @@ function Modalform3(props) {
                 <CardBody>
                 <GridContainer>
                 <GridItem xs={12} sm={12} md={2}>
-                <h5 className={classes.label}>จุดประสงการเดินทาง :</h5>
+                <h7 className={classes.label}>จุดประสงการเดินทาง :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                 <TextField
@@ -220,11 +220,11 @@ function Modalform3(props) {
                     name="email"
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ประเภทงาน :</h5>
+                <h7 className={classes.label}>ประเภทงาน :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -236,20 +236,20 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ตั้งแต่วันที่ :</h5>
+                <h7 className={classes.label}>ตั้งแต่วันที่ :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
                     id="date"
                     label="Birthday"
                     type="date"
-                    variant="outlined"
+                    
                     fullWidth
                     defaultValue=""
                     className={classes.textField}
@@ -259,14 +259,14 @@ function Modalform3(props) {
                 />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ถึงวันที่ :</h5>
+                <h7 className={classes.label}>ถึงวันที่ :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
                     id="date"
                     label="Birthday"
                     type="date"
-                    variant="outlined"
+                    
                     fullWidth
                     defaultValue=""
                     className={classes.textField}
@@ -278,7 +278,7 @@ function Modalform3(props) {
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>เวลาเริ่มต้น :</h5>
+                <h7 className={classes.label}>เวลาเริ่มต้น :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                     <TextField
@@ -286,7 +286,7 @@ function Modalform3(props) {
                         // label="เวลาเริ่มต้น"
                         type="time"
                         // defaultValue="07:30"
-                        variant="outlined"
+                        
                         fullWidth
                         className={classes.textField}
                         InputLabelProps={{
@@ -298,7 +298,7 @@ function Modalform3(props) {
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>เวลาสิ้นสุด :</h5>
+                <h7 className={classes.label}>เวลาสิ้นสุด :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -306,7 +306,7 @@ function Modalform3(props) {
                     // label="เวลาสิ้นสุด"
                     type="time"
                     // defaultValue="07:30"
-                    variant="outlined"
+                    
                     fullWidth
                     className={classes.textField}
                     InputLabelProps={{
@@ -320,7 +320,7 @@ function Modalform3(props) {
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ศูนย์ต้นทุน :</h5>
+                <h7 className={classes.label}>ศูนย์ต้นทุน :</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -332,11 +332,11 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>ศูนย์ต้นทุนอื่น</h5>
+                <h7 className={classes.label}>ศูนย์ต้นทุนอื่น</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -348,13 +348,13 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>เดินทางไปประเทศ</h5>
+                <h7 className={classes.label}>เดินทางไปประเทศ</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -366,11 +366,11 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>จังหวัด</h5>
+                <h7 className={classes.label}>จังหวัด</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -382,13 +382,13 @@ function Modalform3(props) {
                     fullWidth
                     autoComplete="email"
                     margin="normal"
-                    variant="outlined"
+                    
                     />
                 </GridItem>
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={1}>
-                <h5 className={classes.label}>อัตราแลกเงิน</h5>
+                <h7 className={classes.label}>อัตราแลกเงิน</h7>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                 <TextField
@@ -399,23 +399,120 @@ function Modalform3(props) {
                     name="email"
                     fullWidth
                     autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
+                    margin="normal"       
                     />
                 </GridItem>
               </GridContainer>
                 </CardBody>           
                 </GridItem>
               </GridContainer>
+              <hr />
+                         <GridContainer>
+              <GridItem xs={12} sm={12} md={12}>
+                <CardBody>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าเบี้ยเลี้ยง :</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="number"
+                      fullWidth
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าที่พัก</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="number"
+                      fullWidth
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าพาหนะ</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      fullWidth
+                      type="text"                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าใช้รถยนต์ส่วนตัว</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"
+                      fullWidth                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าทางด่วน</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"
+                      fullWidth                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าจอด รถล้างรถ</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      fullWidth
+                      type="text"                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมทั้งหมด</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={2}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"
+                      fullWidth                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                </GridContainer>         
+                </CardBody>           
+                </GridItem>
+              </GridContainer>       
             </CardBody>
             <CardBody>
                     <Table2 />
 
             </CardBody>
-            <CardFooter>
-                <div className={classes.positionButton}>
-              <Button className={classes.buttonSubmit}>ตกลง</Button>
-              </div>
+            <CardFooter className={classes.positionButton}>      
+            <Button colo="success"className={classes.buttonSubmit}>ตกลง</Button>
             </CardFooter>
           </Card>
         </GridItem>

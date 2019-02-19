@@ -118,30 +118,36 @@ export default class EditableTable extends React.Component {
     this.columns = [{
       title: 'วันที่เดินทาง',
       dataIndex: 'startDate',
-      editable: true
+      editable: true,
+      render: ()=> (<Input />)
     }, {
       title: 'เดินทางจาก',
       dataIndex: 'start',
-      editable: true
+      editable: true,
+      render: ()=> (<Input />)
     }, {
       title: 'ถึง',
       dataIndex: 'finish',
-      editable: true
+      editable: true,
+      render: ()=> (<Input />)
     }, 
     {
       title: 'เลขที่มิเตอระยะทาง: เริ่มต้น',
       editable: true,
       dataIndex: 'miStart',
+      render: ()=> (<Input />)
     }, 
     {
       title: 'เลขที่มิเตอระยะทาง: สิ้นสุด',
       editable: true,
       dataIndex: 'miFinish',
+      render: ()=> (<Input />)
       }, 
     {
       title: "ระยะทางรวม",
       editable: true,
       dataIndex: 'summary',
+      render: ()=> (<Input />)
     },
     {
       title: '',
@@ -150,7 +156,7 @@ export default class EditableTable extends React.Component {
         this.state.dataSource.length >= 1
           ? (
             <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-              <a href="javascript:;">Delete</a>
+              <a href="javascript:;"><Button type="danger">Delete</Button></a>
             </Popconfirm>
           ) : null
       ),

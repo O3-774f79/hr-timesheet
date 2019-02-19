@@ -120,65 +120,78 @@ export default class EditableTable extends React.Component {
         dataIndex: "name",
         editable: true,
         width: "10%",
+        render: ()=> (<Input />)
       },
       {
         title: "เวลาเริ่มปฎิบัติงาน",
         dataIndex: "age",
         width: "10%",
+        render: ()=> (<Input />)
       },
       {
         title: "เวลาสิ้นสุด",
         dataIndex: "age",
         width: "10%",
+        render: ()=> (<Input />)
       },
       {
         title: "ปฏิบัติงานภายในประเทศ: จังหวัด",
         dataIndex: "address",
         width: "10%",
+        render: ()=> (<Input />)
       },
       {
         title: "ปฏิบัติงานต่างประเทศ: ประเทศ",
         dataIndex: "address",
         width: "10%",
+        render: ()=> (<Input />)
       },
       {
         title: "รวมวันปฏิบัติงาน",
         dataIndex: "address",
         width: "8%",
+        render: ()=> (<Input />)
       },
       {
         title: "รายละเอียด",
-        dataIndex: "address"
+        dataIndex: "address",
+        render: ()=> (<Input />)
       },
       {
         title: "ค่าเบี้ยเลี้ยง",
         dataIndex: "address",
         width: "5%",
+        render: ()=> (<Input />)
       },
       {
         title: "ค่าที่พัก",
         dataIndex: "address",
         width: "5%",
+        render: ()=> (<Input />)
       },
       {
         title: "ค่าพาหนะ",
         dataIndex: "address",
         width: "5%",
+        render: ()=> (<Input />)
       },
       {
         title: "ค่าใช้รถยนต์ส่วนตัว",
         dataIndex: "address",
         width: "5%",
+        render: ()=> (<Input />)
       },
       {
         title: "ค่าทางด่วน",
         dataIndex: "address",
         width: "5%",
+        render: ()=> (<Input />)
       },
       {
         title: "ค่าจอดรถ & ค่าล้างรถ",
         dataIndex: "address",
         width: "5%",
+        render: ()=> (<Input />)
       },
     ];
 
@@ -248,7 +261,7 @@ export default class EditableTable extends React.Component {
           type="primary"
           style={{ marginBottom: 16 }}
         >
-          Add a row
+          เพิ่มรายการ
         </Button>
         <Table
           components={components}

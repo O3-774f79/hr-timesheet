@@ -24,6 +24,7 @@ import DataTable from './Table'
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Modalform3 from "./Modalform3";
+import { Divider } from "@material-ui/core";
 
 const styles = {
   cardCategoryWhite: {
@@ -92,7 +93,7 @@ class FormReq extends React.Component{
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
               <h3 className={classes.cardTitleWhite}>การเบิกเบี้ยเลี้ยงภายในและต่างประเทศ</h3>
               {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>
@@ -113,12 +114,12 @@ class FormReq extends React.Component{
                 <CardBody>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>รหัสพนักงาน</h5>
+                  <h7 className={classes.label}>รหัสพนักงาน</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
                       id="date"
-                      label=""
+                      label="รหัสพนักงาน"
                       type="text"
                       fullWidth
                       defaultValue=""
@@ -126,12 +127,12 @@ class FormReq extends React.Component{
                   />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>ชื่อ</h5>
+                  <h7 className={classes.label}>ชื่อ</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
                       id="date"
-                      label=""
+                      label="ชื่อ"
                       type="text"     
                       fullWidth          
                       defaultValue=""
@@ -139,12 +140,12 @@ class FormReq extends React.Component{
                   />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>ชื่อสกุล</h5>
+                  <h7 className={classes.label}>ชื่อสกุล</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
                       id="date"
-                      label=""
+                      label="ชื่อสกุล"
                       fullWidth
                       type="text"                 
                       defaultValue=""
@@ -160,7 +161,7 @@ class FormReq extends React.Component{
                 <CardBody>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>ฝ่าย</h5>
+                  <h7 className={classes.label}>ฝ่าย</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
@@ -173,7 +174,7 @@ class FormReq extends React.Component{
                   />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>แผนก</h5>
+                  <h7 className={classes.label}>แผนก</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
@@ -186,7 +187,7 @@ class FormReq extends React.Component{
                   />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>ระดับ</h5>
+                  <h7 className={classes.label}>ระดับ</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
@@ -207,7 +208,7 @@ class FormReq extends React.Component{
                 <CardBody>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>วันที่ :</h5>
+                  <h7 className={classes.label}>วันที่ :</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={3}>
                   <TextField
@@ -223,7 +224,7 @@ class FormReq extends React.Component{
                   />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={2}>
-                  <h5 className={classes.label}>อัตราแลกเงินต่างประเทศ วันที่</h5>
+                  <h7 className={classes.label}>อัตราแลกเงินต่างประเทศ วันที่</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={2}>
                   <TextField
@@ -235,7 +236,7 @@ class FormReq extends React.Component{
                   />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={1}>
-                  <h5 className={classes.label}>เป็นเงิน</h5>
+                  <h7 className={classes.label}>เป็นเงิน</h7>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={2}>
                   <TextField
@@ -246,11 +247,111 @@ class FormReq extends React.Component{
                       className={classes.textField}
                   />
                   </GridItem>
-                  <h5 className={classes.label}>บาท</h5>
+                  <h7 className={classes.label}>บาท</h7>
                 </GridContainer>         
                 </CardBody>           
                 </GridItem>
               </GridContainer>
+              <Divider />
+                         <GridContainer>
+              <GridItem xs={12} sm={12} md={12}>
+                <CardBody>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าเบี้ยเลี้ยง :</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="number"
+                      fullWidth
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าที่พัก</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="number"
+                      fullWidth
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าพาหนะ</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      fullWidth
+                      type="text"                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าใช้รถยนต์ส่วนตัว</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"
+                      fullWidth                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าทางด่วน</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"
+                      fullWidth                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมค่าจอด รถล้างรถ</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <TextField
+                      id="date"
+                      label=""
+                      fullWidth
+                      type="text"                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={1}>
+                  <h7 className={classes.label}>รวมทั้งหมด</h7>
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={2}>
+                  <TextField
+                      id="date"
+                      label=""
+                      type="text"
+                      fullWidth                 
+                      defaultValue=""
+                      className={classes.textField}
+                  />
+                  </GridItem>
+                </GridContainer>         
+                </CardBody>           
+                </GridItem>
+              </GridContainer>       
               <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
                 <CardBody>
@@ -259,19 +360,16 @@ class FormReq extends React.Component{
                 </GridItem>
               </GridContainer>
             </CardBody>
-            <CardFooter>
-                <div className={classes.positionButton}>
-                <Button className={classes.buttonSubmit} onClick={this.showModal} >ตกลง</Button>
+            <CardFooter className={classes.positionButton}>
+                <Button color="success"className={classes.buttonSubmit} onClick={this.showModal} >ตกลง</Button>
               <Modal
               style={{marginLeft:"15%" ,marginTop:"10"}}
             
-              width="75%"
+              width="85%"
               visible={this.state.visible}
               onOk={this.handleOk}
-              onCancel={this.handleCancel}
-              
+              onCancel={this.handleCancel}           
               ><Modalform3 /> </Modal>
-              </div>
             </CardFooter>
           </Card>
         </GridItem>
