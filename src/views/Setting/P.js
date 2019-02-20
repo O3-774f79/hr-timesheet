@@ -45,7 +45,7 @@ class S extends Component {
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={2}>
-            <h7>ระดับ ผู้ปฏิบัติงาน 4</h7>
+            <h7>ระดับผู้ปฏิบัติงาน 4</h7>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <TextField
@@ -130,7 +130,7 @@ class S extends Component {
         <Divider />
         <GridContainer>
           <GridItem xs={12} sm={12} md={2}>
-            <h7>ระดับ ผู้ปฏิบัติงาน 3</h7>
+            <h7>ระดับผู้ปฏิบัติงาน 3</h7>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <TextField
@@ -215,7 +215,7 @@ class S extends Component {
         <Divider />
         <GridContainer>
           <GridItem xs={12} sm={12} md={2}>
-            <h7>ระดับ ผู้ปฏิบัติงาน 2</h7>
+            <h7>ระดับผู้ปฏิบัติงาน 2</h7>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <TextField
@@ -300,7 +300,7 @@ class S extends Component {
         <Divider />
         <GridContainer>
           <GridItem xs={12} sm={12} md={2}>
-            <h7>ระดับ ผู้ปฏิบัติงาน 1</h7>
+            <h7>ระดับผู้ปฏิบัติงาน 1</h7>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <TextField
