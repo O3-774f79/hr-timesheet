@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
-import { Table, Input, Button, Popconfirm, Form } from "antd";
-
+import { Table, Input, Button, Popconfirm, Form,Modal } from "antd";
+import ModalFormValue from './ModalFormValue'
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
@@ -93,19 +93,19 @@ class EditableCell extends React.Component {
                   )}
                 </FormItem>
               ) : (
-                <div
-                  className="editable-cell-value-wrap"
-                  style={{ paddingRight: 24 }}
-                  onClick={this.toggleEdit}
-                >
-                  {restProps.children}
-                </div>
-              );
+                  <div
+                    className="editable-cell-value-wrap"
+                    style={{ paddingRight: 24 }}
+                    onClick={this.toggleEdit}
+                  >
+                    {restProps.children}
+                  </div>
+                );
             }}
           </EditableContext.Consumer>
         ) : (
-          restProps.children
-        )}
+            restProps.children
+          )}
       </td>
     );
   }
@@ -198,10 +198,30 @@ export default class EditableTable extends React.Component {
 
     this.state = {
       dataSource: [],
-      count: 2
+      count: 2,
+      visible: false
     };
   }
 
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
   handleDelete = key => {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
@@ -258,7 +278,8 @@ export default class EditableTable extends React.Component {
     return (
       <div>
         <Button
-          onClick={this.handleAdd}
+          // onClick={this.handleAdd}
+          onClick={this.showModal}
           type="primary"
           style={{ marginBottom: 16 }}
         >
@@ -272,6 +293,15 @@ export default class EditableTable extends React.Component {
           columns={columns}
           scroll={{ x: 2000 }}
         />
+        <Modal
+          style={{ marginLeft: "15%", marginTop: "10" }}
+          width="85%"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <ModalFormValue />{" "}
+        </Modal>
       </div>
     );
   }
