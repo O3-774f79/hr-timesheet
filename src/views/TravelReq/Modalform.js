@@ -1,9 +1,7 @@
 import React from "react";
 //@antD component
-import 'antd/dist/antd.css';
-import {
-  Table, Input, Popconfirm, Form, Modal, Steps, Icon,
-} from 'antd';
+import "antd/dist/antd.css";
+import { Table, Input, Popconfirm, Form, Modal, Steps, Icon } from "antd";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -15,14 +13,13 @@ import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-
 
 const Step = Steps.Step;
 
@@ -53,7 +50,7 @@ const styles = {
   },
   buttonSubmit: {
     backgroundColor: "rgb(51, 204, 51)",
-    color: "rgb(0, 0, 0)",
+    color: "rgb(0, 0, 0)"
   },
   positionButton: {
     display: "flex",
@@ -69,16 +66,27 @@ function Modalform(props) {
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="info">
-
               <h3 className={classes.cardTitleWhite}>การขอเดินทาง</h3>
               {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>
             <CardBody>
               <Steps>
                 <Steps>
-                  <Step status="finish" title="Emp" icon={<Icon type="user" />} />
-                  <Step status="finish" title="Manager" icon={<Icon type="solution" />} />
-                  <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
+                  <Step
+                    status="finish"
+                    title="Emp"
+                    icon={<Icon type="user" />}
+                  />
+                  <Step
+                    status="finish"
+                    title="Manager"
+                    icon={<Icon type="solution" />}
+                  />
+                  <Step
+                    status="wait"
+                    title="Done"
+                    icon={<Icon type="smile-o" />}
+                  />
                 </Steps>
               </Steps>
             </CardBody>
@@ -90,7 +98,7 @@ function Modalform(props) {
                     <Toolbar variant="dense">
                       <Typography variant="h6" color="inherit">
                         <PersonPinIcon /> พนักงาน
-                    </Typography>
+                      </Typography>
                     </Toolbar>
                   </AppBar>
                   <CardBody>
@@ -108,7 +116,6 @@ function Modalform(props) {
                           name="email"
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -124,7 +131,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -140,7 +146,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -158,7 +163,6 @@ function Modalform(props) {
                           name="email"
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -174,7 +178,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -190,7 +193,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -203,7 +205,7 @@ function Modalform(props) {
                     <Toolbar variant="dense">
                       <Typography variant="h6" color="inherit">
                         <LibraryBooks /> ข้อมูลการเดินทาง
-                    </Typography>
+                      </Typography>
                     </Toolbar>
                   </AppBar>
                   <CardBody>
@@ -221,7 +223,6 @@ function Modalform(props) {
                           name="email"
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -237,7 +238,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -250,12 +250,11 @@ function Modalform(props) {
                           id="date"
                           label="Birthday"
                           type="date"
-
                           fullWidth
                           defaultValue=""
                           className={classes.textField}
                           InputLabelProps={{
-                            shrink: true,
+                            shrink: true
                           }}
                         />
                       </GridItem>
@@ -267,12 +266,11 @@ function Modalform(props) {
                           id="date"
                           label="Birthday"
                           type="date"
-
                           fullWidth
                           defaultValue=""
                           className={classes.textField}
                           InputLabelProps={{
-                            shrink: true,
+                            shrink: true
                           }}
                         />
                       </GridItem>
@@ -284,17 +282,17 @@ function Modalform(props) {
                       <GridItem xs={12} sm={12} md={3}>
                         <TextField
                           id="time"
-                          // label="เวลาเริ่มต้น"
+                          label="เวลาเริ่มต้น"
                           type="time"
                           // defaultValue="07:30"
 
                           fullWidth
                           className={classes.textField}
                           InputLabelProps={{
-                            shrink: true,
+                            shrink: true
                           }}
                           inputProps={{
-                            step: 600, // 5 min
+                            step: 600 // 5 min
                           }}
                         />
                       </GridItem>
@@ -304,17 +302,17 @@ function Modalform(props) {
                       <GridItem xs={12} sm={12} md={3}>
                         <TextField
                           id="time"
-                          // label="เวลาสิ้นสุด"
+                          label="เวลาสิ้นสุด"
                           type="time"
                           // defaultValue="07:30"
 
                           fullWidth
                           className={classes.textField}
                           InputLabelProps={{
-                            shrink: true,
+                            shrink: true
                           }}
                           inputProps={{
-                            step: 600, // 5 min
+                            step: 600 // 5 min
                           }}
                         />
                       </GridItem>
@@ -333,7 +331,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -349,7 +346,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -367,7 +363,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -383,7 +378,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -401,7 +395,6 @@ function Modalform(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -410,7 +403,7 @@ function Modalform(props) {
               </GridContainer>
             </CardBody>
             <CardFooter className={classes.positionButton}>
-                <Button color ="success">ตกลง</Button>
+              <Button color="success">ส่งอนุมัติ</Button>
             </CardFooter>
           </Card>
         </GridItem>

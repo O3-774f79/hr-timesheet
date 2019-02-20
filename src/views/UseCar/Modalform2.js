@@ -1,9 +1,7 @@
 import React from "react";
 //@antD component
-import 'antd/dist/antd.css';
-import {
-  Table, Input, Popconfirm, Form, Modal, Steps, Icon,
-} from 'antd';
+import "antd/dist/antd.css";
+import { Table, Input, Popconfirm, Form, Modal, Steps, Icon } from "antd";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -15,15 +13,14 @@ import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import Table2 from './Table2'
-
+import Table2 from "./Table2";
 
 const Step = Steps.Step;
 
@@ -54,11 +51,11 @@ const styles = {
   },
   buttonSubmit: {
     backgroundColor: "rgb(51, 204, 51)",
-    color: "rgb(0, 0, 0)",
+    color: "rgb(0, 0, 0)"
   },
   positionButton: {
-    display:"flex",
-    justifyContent:"center"
+    display: "flex",
+    justifyContent: "center"
   }
 };
 
@@ -70,15 +67,24 @@ function Modalform2(props) {
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="info">
-
-              <h3 className={classes.cardTitleWhite}>การเบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท</h3>
+              <h3 className={classes.cardTitleWhite}>
+                การเบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท
+              </h3>
               {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>
             <CardBody>
               <Steps>
                 <Step status="finish" title="Emp" icon={<Icon type="user" />} />
-                <Step status="finish" title="Manager" icon={<Icon type="solution" />} />
-                <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
+                <Step
+                  status="finish"
+                  title="Manager"
+                  icon={<Icon type="solution" />}
+                />
+                <Step
+                  status="wait"
+                  title="Done"
+                  icon={<Icon type="smile-o" />}
+                />
               </Steps>
             </CardBody>
 
@@ -89,7 +95,7 @@ function Modalform2(props) {
                     <Toolbar variant="dense">
                       <Typography variant="h6" color="inherit">
                         <PersonPinIcon /> พนักงาน
-                    </Typography>
+                      </Typography>
                     </Toolbar>
                   </AppBar>
                   <CardBody>
@@ -107,7 +113,6 @@ function Modalform2(props) {
                           name="email"
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -123,7 +128,6 @@ function Modalform2(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -139,7 +143,6 @@ function Modalform2(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -157,7 +160,6 @@ function Modalform2(props) {
                           name="email"
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -173,7 +175,6 @@ function Modalform2(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -189,7 +190,6 @@ function Modalform2(props) {
                           fullWidth
                           autoComplete="email"
                           margin="normal"
-
                         />
                       </GridItem>
                     </GridContainer>
@@ -198,45 +198,45 @@ function Modalform2(props) {
               </GridContainer>
               <hr />
               <GridContainer>
-              <GridItem xs={12} sm={12} md={12}>
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={2}>
-                  <h7 className={classes.label}>จำนวนระยะทางรวม :</h7>
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={2}>
-                  <TextField
-                      id="date"
-                      label="จำนวนระยะทางรวม"
-                      type="text"
-                      
-                      fullWidth
-                      className={classes.textField}
-                  />
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={3}>
-                  <h7 className={classes.label}>การคำนวณเงินช่วยเหลือค่าพาหนะ (6 บาท / กิโลเมตร)</h7>
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={2}>
-                  <TextField
-                      id="date"
-                      label="เงินช่วยเหลือค่าพาหนะ"
-                      type="text"
-                           
-                      fullWidth            
-                      className={classes.textField}
-                  />
-                  </GridItem>
-                </GridContainer>                  
+                <GridItem xs={12} sm={12} md={12}>
+                  <GridContainer>
+                    <GridItem xs={12} sm={12} md={2}>
+                      <h7 className={classes.label}>จำนวนระยะทางรวม :</h7>
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={2}>
+                      <TextField
+                        id="date"
+                        label="จำนวนระยะทางรวม"
+                        type="text"
+                        fullWidth
+                        className={classes.textField}
+                      />
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={3}>
+                      <h7 className={classes.label}>
+                        การคำนวณเงินช่วยเหลือค่าพาหนะ (6 บาท / กิโลเมตร)
+                      </h7>
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={2}>
+                      <TextField
+                        id="date"
+                        label="เงินช่วยเหลือค่าพาหนะ"
+                        type="text"
+                        fullWidth
+                        className={classes.textField}
+                      />
+                    </GridItem>
+                  </GridContainer>
                 </GridItem>
               </GridContainer>
-              
             </CardBody>
             <CardBody>
               <Table2 />
-
             </CardBody>
-            <CardFooter  className={classes.positionButton}>
-                <Button color="success"className={classes.buttonSubmit}>ตกลง</Button>
+            <CardFooter className={classes.positionButton}>
+              <Button color="success" className={classes.buttonSubmit}>
+                ส่งอนุมัติ
+              </Button>
             </CardFooter>
           </Card>
         </GridItem>

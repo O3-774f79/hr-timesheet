@@ -115,10 +115,10 @@ class FormReq extends React.Component {
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
                       <GridContainer>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <h7 className={classes.label}>รหัสพนักงาน</h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={3}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label="รหัสพนักงาน"
@@ -162,10 +162,10 @@ class FormReq extends React.Component {
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
                       <GridContainer>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <h7 className={classes.label}>ฝ่าย</h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={3}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label="ฝ่าย"
@@ -209,10 +209,10 @@ class FormReq extends React.Component {
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
                       <GridContainer>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <h7 className={classes.labelFlow}>วันที่</h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={3}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label=""
@@ -261,10 +261,12 @@ class FormReq extends React.Component {
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
                       <GridContainer>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes}>รวมค่าเบี้ยเลี้ยง</h7>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>
+                            รวมค่าเบี้ยเลี้ยง :
+                          </h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label=""
@@ -274,10 +276,10 @@ class FormReq extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes}>รวมค่าที่พัก</h7>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>รวมค่าที่พัก</h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label=""
@@ -287,10 +289,10 @@ class FormReq extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes}>รวมค่าพาหนะ</h7>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>รวมค่าพาหนะ</h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label=""
@@ -300,10 +302,20 @@ class FormReq extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes}>รวมค่าใช้รถยนต์ส่วนตัว</h7>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>
+                            รวมค่าใช้รถยนต์ส่วนตัว
+                          </h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label=""
@@ -313,10 +325,10 @@ class FormReq extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes}>รวมค่าทางด่วน</h7>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>รวมค่าทางด่วน</h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label=""
@@ -326,10 +338,12 @@ class FormReq extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes}>รวมค่าจอด รถล้างรถ</h7>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>
+                            รวมค่าจอด รถล้างรถ
+                          </h7>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
+                        <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="date"
                             label=""
@@ -339,8 +353,16 @@ class FormReq extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes}>รวมทั้งหมด</h7>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={5}>
+                          <h7 className={classes.labelFlow}>รวมทั้งหมด</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
                           <TextField

@@ -119,80 +119,81 @@ export default class Table2 extends React.Component {
         title: "วันที่",
         dataIndex: "name",
         editable: true,
-        width: "10%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "เวลาเริ่มปฎิบัติงาน",
         dataIndex: "age",
-        width: "10%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "เวลาสิ้นสุด",
         dataIndex: "age",
-        width: "10%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "ปฏิบัติงานภายในประเทศ: จังหวัด",
         dataIndex: "address",
-        width: "10%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "ปฏิบัติงานต่างประเทศ: ประเทศ",
         dataIndex: "address",
-        width: "10%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "รวมวันปฏิบัติงาน",
         dataIndex: "address",
-        width: "8%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "รายละเอียด",
         dataIndex: "address",
-        render: ()=> (<Input />)
+        width: 300,
+        render: () => <Input type="textarea" />
       },
       {
         title: "ค่าเบี้ยเลี้ยง",
         dataIndex: "address",
-        width: "5%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "ค่าที่พัก",
         dataIndex: "address",
-        width: "5%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "ค่าพาหนะ",
         dataIndex: "address",
-        width: "5%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "ค่าใช้รถยนต์ส่วนตัว",
         dataIndex: "address",
-        width: "5%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "ค่าทางด่วน",
         dataIndex: "address",
-        width: "5%",
-        render: ()=> (<Input />)
+        width: 100,
+        render: () => <Input />
       },
       {
         title: "ค่าจอดรถ & ค่าล้างรถ",
         dataIndex: "address",
-        width: "5%",
-        render: ()=> (<Input />)
-      },
+        width: 100,
+        render: () => <Input />
+      }
     ];
 
     this.state = {
@@ -269,9 +270,9 @@ export default class Table2 extends React.Component {
           bordered
           dataSource={dataSource}
           columns={columns}
+          scroll={{ x: 2000 }}
         />
       </div>
     );
   }
 }
-
