@@ -1,10 +1,9 @@
 import React from "react";
 //@antD component
 import "antd/dist/antd.css";
-import { Table, Input, Popconfirm, Form, Modal, Steps, Icon } from "antd";
+import { Modal } from "antd";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -58,7 +57,26 @@ const styles = {
 };
 
 class FormReq extends React.Component {
-  state = { visible: false };
+  state = {
+    visible: false,
+    EmpID: "12345",
+    EmpFName: "Ananchai",
+    EmpLName: "Phahupongsub",
+    EmpGroup: "IT",
+    EmpDepartment: "Programming",
+    EmpLevel: "Develper",
+    TravelTarget: "Support program",
+    WorkType: "Support",
+    DateStart: "2019-01-12",
+    DateFinish: "2019-01-13",
+    TimeStart: "08:00",
+    TimeFinish: "18:00",
+    CostCenter: "LeaderPlanet",
+    CostOther: "",
+    County: "",
+    Province: "นครปฐม",
+    MoneyTran: ""
+  };
 
   showModal = () => {
     this.setState({
@@ -79,7 +97,9 @@ class FormReq extends React.Component {
       visible: false
     });
   };
-
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
   render() {
     const { classes } = this.props;
     return (
@@ -111,9 +131,9 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="รหัสพนักงาน"
                             className={classes.textField}
-                            type="email"
+                            onChange={this.handleChange("EmpID")}
+                            value={this.state.EmpID}
                             fullWidth
-                            name="email"
                             margin="normal"
                           />
                         </GridItem>
@@ -125,8 +145,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="ชื่อ"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("EmpFName")}
+                            value={this.state.EmpFName}
                             fullWidth
                             margin="normal"
                           />
@@ -139,8 +159,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="ชื่อสกุล"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("EmpLName")}
+                            value={this.state.EmpLName}
                             fullWidth
                             margin="normal"
                           />
@@ -155,9 +175,9 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="ฝ่าย"
                             className={classes.textField}
-                            type="email"
+                            onChange={this.handleChange("EmpGroup")}
+                            value={this.state.EmpGroup}
                             fullWidth
-                            name="email"
                             margin="normal"
                           />
                         </GridItem>
@@ -169,8 +189,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="แผนก"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("EmpDepartment")}
+                            value={this.state.EmpDepartment}
                             fullWidth
                             margin="normal"
                           />
@@ -183,8 +203,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="ระดับ"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("EmpLevel")}
+                            value={this.state.EmpLevel}
                             fullWidth
                             margin="normal"
                           />
@@ -212,6 +232,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="จุดประสงการเดินทาง"
                             className={classes.textField}
+                            onChange={this.handleChange("TravelTarget")}
+                            value={this.state.TravelTarget}
                             type="email"
                             fullWidth
                             name="email"
@@ -226,8 +248,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="ประเภทงาน"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("WorkType")}
+                            value={this.state.WorkType}
                             fullWidth
                             margin="normal"
                           />
@@ -244,6 +266,8 @@ class FormReq extends React.Component {
                             label="Birthday"
                             type="date"
                             fullWidth
+                            onChange={this.handleChange("DateStart")}
+                            value={this.state.DateStart}
                             defaultValue=""
                             className={classes.textField}
                             InputLabelProps={{
@@ -260,6 +284,8 @@ class FormReq extends React.Component {
                             label="Birthday"
                             type="date"
                             fullWidth
+                            onChange={this.handleChange("DateFinish")}
+                            value={this.state.DateFinish}
                             defaultValue=""
                             className={classes.textField}
                             InputLabelProps={{
@@ -278,6 +304,8 @@ class FormReq extends React.Component {
                             label="เวลาเริ่มต้น"
                             type="time"
                             fullWidth
+                            onChange={this.handleChange("TimeStart")}
+                            value={this.state.TimeStart}
                             defaultValue=""
                             className={classes.textField}
                             InputLabelProps={{
@@ -293,6 +321,8 @@ class FormReq extends React.Component {
                             id="date"
                             label="เวลาสิ้นสุด"
                             type="time"
+                            onChange={this.handleChange("TimeFinish")}
+                            value={this.state.TimeFinish}
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
@@ -312,8 +342,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="ศูนย์ต้นทุน"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("CostCenter")}
+                            value={this.state.CostCenter}
                             fullWidth
                             margin="normal"
                           />
@@ -326,8 +356,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="ศูนย์ต้นทุนอื่น"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("CostOther")}
+                            value={this.state.CostOther}
                             fullWidth
                             margin="normal"
                           />
@@ -342,8 +372,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="เดินทางไปประเทศ"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("County")}
+                            value={this.state.County}
                             fullWidth
                             margin="normal"
                           />
@@ -356,8 +386,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="จังหวัด"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("Province")}
+                            value={this.state.Province}
                             fullWidth
                             margin="normal"
                           />
@@ -370,8 +400,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="อัตราแลกเงิน"
                             className={classes.textField}
-                            type="email"
-                            name="email"
+                            onChange={this.handleChange("MoneyTran")}
+                            value={this.state.MoneyTran}
                             fullWidth
                             margin="normal"
                           />
@@ -383,7 +413,7 @@ class FormReq extends React.Component {
               </CardBody>
               <CardFooter className={classes.positionButton}>
                 <Button color="success" onClick={this.showModal}>
-                  ตกลง
+                  ตรวจสอบรายการอนุมัติ
                 </Button>
                 <Modal
                   style={{ marginLeft: "15%", marginTop: "10" }}
@@ -392,7 +422,7 @@ class FormReq extends React.Component {
                   onOk={this.handleOk}
                   onCancel={this.handleCancel}
                 >
-                  <Modalform />{" "}
+                  <Modalform dataTravelReq={this.state} />
                 </Modal>
               </CardFooter>
             </Card>

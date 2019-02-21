@@ -1,6 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import data from "./data";
+import DataTravelReq from "../../store/travelReq";
 import { Table, Input, Button, Popconfirm, Form } from "antd";
 
 const FormItem = Form.Item;
@@ -237,7 +237,7 @@ export default class EditableTable extends React.Component {
           components={components}
           rowClassName={() => "editable-row"}
           bordered
-          dataSource={dataSource}
+          dataSource={DataTravelReq}
           columns={columns}
         />
       </div>
