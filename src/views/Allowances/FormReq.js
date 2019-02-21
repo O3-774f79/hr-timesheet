@@ -64,7 +64,15 @@ const styles = {
 };
 
 class FormReq extends React.Component {
-  state = { visible: false };
+  state = {
+    visible: false,
+    EmpID: "",
+    EmpFName: "",
+    EmpLName: "",
+    EmpGroup: "",
+    EmpDepartment: "",
+    EmpLevel: ""
+  };
 
   showModal = () => {
     this.setState({
@@ -123,6 +131,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="รหัสพนักงาน"
                             type="text"
+                            value={this.state.EmpID}
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
@@ -136,6 +145,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ชื่อ"
                             type="text"
+                            value={this.state.EmpFName}
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
@@ -148,6 +158,7 @@ class FormReq extends React.Component {
                           <TextField
                             id="date"
                             label="ชื่อสกุล"
+                            value={this.state.EmpLName}
                             fullWidth
                             type="text"
                             defaultValue=""
@@ -169,6 +180,7 @@ class FormReq extends React.Component {
                           <TextField
                             id="date"
                             label="ฝ่าย"
+                            value={this.state.EmpGroup}
                             type="text"
                             fullWidth
                             defaultValue=""
@@ -183,6 +195,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="แผนก"
                             type="text"
+                            value={this.state.EmpDepartment}
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
@@ -196,6 +209,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ระดับ"
                             fullWidth
+                            value={this.state.EmpLevel}
                             type="text"
                             defaultValue=""
                             className={classes.textField}

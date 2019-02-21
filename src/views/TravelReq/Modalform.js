@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //@antD component
 import "antd/dist/antd.css";
-import { Table, Input, Popconfirm, Form, Modal, Steps, Icon } from "antd";
+import { Steps, Icon } from "antd";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -20,7 +20,6 @@ import TextField from "@material-ui/core/TextField";
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import renderEmpty from "antd/lib/config-provider/renderEmpty";
 import dataTravelReq from "../../store/travelReq";
 
 const Step = Steps.Step;
@@ -90,6 +89,9 @@ class Modalform extends Component {
       status: "รอการอนุมัติ"
     });
   };
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
   render() {
     const { classes, dataTravelReq } = this.props;
     return (
@@ -146,6 +148,7 @@ class Modalform extends Component {
                             type="email"
                             fullWidth
                             value={dataTravelReq.EmpID}
+                            onChange={this.handleChange("EmpID")}
                             name="email"
                             autoComplete="email"
                             margin="normal"
@@ -160,6 +163,7 @@ class Modalform extends Component {
                             label="ชื่อ"
                             className={classes.textField}
                             value={dataTravelReq.EmpFName}
+                            onChange={this.handleChange("EmpFName")}
                             type="email"
                             name="email"
                             fullWidth
@@ -176,6 +180,7 @@ class Modalform extends Component {
                             label="ชื่อสกุล"
                             className={classes.textField}
                             value={dataTravelReq.EmpLName}
+                            onChange={this.handleChange("EmpLName")}
                             type="email"
                             name="email"
                             fullWidth
@@ -194,6 +199,7 @@ class Modalform extends Component {
                             label="ฝ่าย"
                             className={classes.textField}
                             value={dataTravelReq.EmpGroup}
+                            onChange={this.handleChange("EmpGroup")}
                             type="email"
                             fullWidth
                             name="email"
@@ -210,6 +216,7 @@ class Modalform extends Component {
                             label="แผนก"
                             className={classes.textField}
                             value={dataTravelReq.EmpDepartment}
+                            onChange={this.handleChange("EmpDepartment")}
                             type="email"
                             name="email"
                             fullWidth
@@ -226,6 +233,7 @@ class Modalform extends Component {
                             label="ระดับ"
                             className={classes.textField}
                             value={dataTravelReq.EmpLevel}
+                            onChange={this.handleChange("EmpLevel")}
                             type="email"
                             name="email"
                             fullWidth
@@ -258,6 +266,7 @@ class Modalform extends Component {
                             id="outlined-email-input"
                             label="จุดประสงการเดินทาง"
                             className={classes.textField}
+                            onChange={this.handleChange("TravelTarget")}
                             type="email"
                             fullWidth
                             value={dataTravelReq.TravelTarget}
@@ -275,6 +284,7 @@ class Modalform extends Component {
                             label="ประเภทงาน"
                             className={classes.textField}
                             value={dataTravelReq.WorkType}
+                            onChange={this.handleChange("WorkType")}
                             type="email"
                             name="email"
                             fullWidth
@@ -294,6 +304,7 @@ class Modalform extends Component {
                             type="date"
                             fullWidth
                             value={dataTravelReq.DateStart}
+                            onChange={this.handleChange("DateStart")}
                             defaultValue=""
                             className={classes.textField}
                             InputLabelProps={{
@@ -310,6 +321,7 @@ class Modalform extends Component {
                             label="Birthday"
                             type="date"
                             value={dataTravelReq.DateFinish}
+                            onChange={this.handleChange("DateFinish")}
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
@@ -330,6 +342,7 @@ class Modalform extends Component {
                             type="time"
                             // defaultValue="07:30"
                             value={dataTravelReq.TimeStart}
+                            onChange={this.handleChange("TimeStart")}
                             fullWidth
                             className={classes.textField}
                             InputLabelProps={{
@@ -350,6 +363,7 @@ class Modalform extends Component {
                             type="time"
                             // defaultValue="07:30"
                             value={dataTravelReq.TimeFinish}
+                            onChange={this.handleChange("TimeFinish")}
                             fullWidth
                             className={classes.textField}
                             InputLabelProps={{
@@ -371,6 +385,7 @@ class Modalform extends Component {
                             label="ศูนย์ต้นทุน"
                             className={classes.textField}
                             value={dataTravelReq.CostCenter}
+                            onChange={this.handleChange("CostCenter")}
                             type="email"
                             name="email"
                             fullWidth
@@ -387,6 +402,7 @@ class Modalform extends Component {
                             label="ศูนย์ต้นทุนอื่น"
                             className={classes.textField}
                             value={dataTravelReq.CostOther}
+                            onChange={this.handleChange("CostOther")}
                             type="email"
                             name="email"
                             fullWidth
@@ -405,6 +421,7 @@ class Modalform extends Component {
                             label="เดินทางไปประเทศ"
                             className={classes.textField}
                             value={dataTravelReq.County}
+                            onChange={this.handleChange("County")}
                             type="email"
                             name="email"
                             fullWidth
@@ -421,6 +438,7 @@ class Modalform extends Component {
                             label="จังหวัด"
                             className={classes.textField}
                             value={dataTravelReq.Province}
+                            onChange={this.handleChange("Province")}
                             type="email"
                             name="email"
                             fullWidth
@@ -439,6 +457,7 @@ class Modalform extends Component {
                             label="อัตราแลกเงิน"
                             className={classes.textField}
                             value={dataTravelReq.MoneyTran}
+                            onChange={this.handleChange("MoneyTran")}
                             type="email"
                             name="email"
                             fullWidth
