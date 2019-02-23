@@ -6,7 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import Typography from "@material-ui/core/Typography";
-
+import Button from "components/CustomButtons/Button.jsx";
 import S from "./S";
 import K from "./K";
 import P from "./P";

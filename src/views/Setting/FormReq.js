@@ -5,17 +5,14 @@ import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
-import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
-import CardFooter from "components/Card/CardFooter.jsx";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Tabs from './Tabs'
-import TextField from '@material-ui/core/TextField';
 
 const styles = {
   cardCategoryWhite: {
@@ -62,6 +59,7 @@ class UserProfile extends Component {
       handleCompClick = (k)=> {
           this.setState({Comp:k})
       }
+      
   render(){
     const { classes } = this.props;
   return (
@@ -120,9 +118,6 @@ class UserProfile extends Component {
             <CardBody>
             <Tabs />
             </CardBody>
-            <CardFooter className={classes.CardFooter}>
-              <Button color="success">อัพเดท</Button>
-            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>
