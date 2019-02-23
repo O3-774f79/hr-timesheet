@@ -110,97 +110,95 @@ class EditableCell extends React.Component {
     );
   }
 }
-
 export default class EditableTable extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      dataSource: [{
+        dateStart: "Screem",
+        dateFinish: "iOS",
+        timeStart:"10.3.4.5654",
+        timeFinish: "10.3.4.5654",
+        country: 500,
+        detail: "Jack",
+      }],
+      count: 2,
+      visible: false ,
+      country: ""
+    };
     this.columns = [
       {
         title: "วันที่",
-        dataIndex: "name",
+        dataIndex: "dateStart",
         editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "เวลาเริ่มปฎิบัติงาน",
-        dataIndex: "age",
+        dataIndex: "timeStart",
+        editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "เวลาสิ้นสุด",
-        dataIndex: "age",
+        dataIndex: "dateFinish",
+        editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
-        title: "ปฏิบัติงานภายในประเทศ: จังหวัด",
-        dataIndex: "address",
+        title: "จุดหมายปลายทาง",
+        dataIndex: "country",
+        editable: true,
         width: 100,
-        render: () => <Input />
-      },
-      {
-        title: "ปฏิบัติงานต่างประเทศ: ประเทศ",
-        dataIndex: "address",
-        width: 100,
-        render: () => <Input />
       },
       {
         title: "รวมวันปฏิบัติงาน",
-        dataIndex: "address",
+        dataIndex: "total",
+        editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "รายละเอียด",
-        dataIndex: "address",
+        dataIndex: "detail",
+        editable: true,
         width: 300,
-        render: () => <Input type="textarea" />
       },
       {
         title: "ค่าเบี้ยเลี้ยง",
         dataIndex: "address",
+        editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าที่พัก",
         dataIndex: "address",
+        editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าพาหนะ",
         dataIndex: "address",
+        editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าใช้รถยนต์ส่วนตัว",
+        editable: true,
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าทางด่วน",
         dataIndex: "address",
+        editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าจอดรถ & ค่าล้างรถ",
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       }
     ];
-
-    this.state = {
-      dataSource: [],
-      count: 2,
-      visible: false
-    };
   }
 
   showModal = () => {
@@ -240,7 +238,28 @@ export default class EditableTable extends React.Component {
       count: count + 1
     });
   };
-
+  expandedRowRender = () => {
+    const columns = [
+      { title: "รายการ", dataIndex: "list",width: "30%" , 
+      render: (text, row, index) => {
+        if (index == 0) {
+          return <a href="javascript:;">{text}</a>;
+        }
+        return {
+          children: <a href="javascript:;">{text}</a>,
+          props: {
+            colSpan: 2,
+          },
+        };
+      },}, 
+      { title: "เป็นเงิน/บาท", dataIndex: "sum",width: 5},
+    ];
+    const data = [{
+      list: "2014-12-24 23:12:00",
+      sum: "This is production name",
+    }]
+    return <Table columns={columns} dataSource={data} pagination={false} size="middle"/>;
+  };
   handleSave = row => {
     const newData = [...this.state.dataSource];
     const index = newData.findIndex(item => row.key === item.key);
@@ -293,6 +312,7 @@ export default class EditableTable extends React.Component {
           columns={columns}
           scroll={{ x: 2000 }}
           footer={null}
+          expandedRowRender={this.expandedRowRender}
         />
         <Modal
           style={{ marginLeft: "15%", marginTop: "10" }}

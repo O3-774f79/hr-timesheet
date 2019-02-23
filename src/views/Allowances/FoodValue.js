@@ -24,11 +24,82 @@ const styles = theme => ({
   }
 });
 
-function SimpleExpansionPanel(props) {
-  const { classes } = props;
+class SimpleExpansionPanel extends React.Component {
+  state = {
+    expanded: 'panel1',
+  };
+  handleChange = panel => (event, expanded) => {
+    this.setState({
+      expanded: expanded ? panel : false,
+    });
+  };
+  render(){
+  const { classes } = this.props;
+  const {expanded} = this.state
   return (
     <div className={classes.root}>
-      <ExpansionPanel>
+          <ExpansionPanel
+              square
+              expanded={expanded === 'panel1'}
+              onChange={this.handleChange('panel1')}
+            >
+          >
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography className={classes.heading}>ค่าเดินทางและพาหนะ</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Typography>
+              <form className={classes.container} noValidate autoComplete="off">
+            <TextField
+              id="standard-name"
+              label="ค่าทางด่วน"
+              className={classes.textField}
+              margin="normal"
+            />
+
+            <TextField
+              id="standard-uncontrolled"
+              label="ค่าจอด รถล้างรถ"
+              className={classes.textField}
+              margin="normal"
+            />
+              <TextField
+              id="standard-uncontrolled"
+              label="ค่าแท็กซี่"
+              className={classes.textField}
+              margin="normal"
+            />
+            </form>
+            <form className={classes.container} noValidate autoComplete="off">
+            <TextField
+              id="standard-name"
+              label="ค่าภาษีสนามบิน"
+              className={classes.textField}
+              margin="normal"
+            />
+
+            <TextField
+              id="standard-uncontrolled"
+              label="ค่าตั๋วสนามบิน              "
+              className={classes.textField}
+              margin="normal"
+            />
+              <TextField
+              id="standard-uncontrolled"
+              label="ค่าน้ำมัน"
+              className={classes.textField}
+              margin="normal"
+            />
+         </form>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel 
+          square
+          expanded={expanded === 'panel2'}
+          onChange={this.handleChange('panel2')}
+        >
+      >
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>ค่าอาหาร</Typography>
         </ExpansionPanelSummary>
@@ -79,7 +150,11 @@ function SimpleExpansionPanel(props) {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel>
+      <ExpansionPanel     
+          square
+          expanded={expanded === 'panel3'}
+          onChange={this.handleChange('panel3')}
+        >>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>ค่ารับรอง</Typography>
         </ExpansionPanelSummary>
@@ -115,10 +190,38 @@ function SimpleExpansionPanel(props) {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      <ExpansionPanel     
+          square
+          expanded={expanded === 'panel4'}
+          onChange={this.handleChange('panel4')}
+        >>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>อื่นๆ</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+          <form className={classes.container} noValidate autoComplete="off">
+        <TextField
+          id="standard-name"
+          label="ค่าอัดรูป"
+          className={classes.textField}
+          margin="normal"
+        />
+
+        <TextField
+          id="standard-uncontrolled"
+          label="ค่าแผ่น CD"
+          className={classes.textField}
+          margin="normal"
+        />
+         </form>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     </div>
   );
 }
-
+}
 SimpleExpansionPanel.propTypes = {
   classes: PropTypes.object.isRequired,
 };

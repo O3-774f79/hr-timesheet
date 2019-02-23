@@ -128,7 +128,7 @@ function Modalform3(props) {
                       <GridItem xs={12} sm={12} md={2}>
                         <TextField
                           id="date"
-                          label="ประเทศ"
+                          label="ปลายทาง"
                           type="text"
                           fullWidth
                           defaultValue=""

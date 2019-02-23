@@ -23,7 +23,9 @@ import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Modalform3 from "./Modalform3";
 import { Divider } from "@material-ui/core";
+import { Select } from 'antd';
 
+const Option = Select.Option;
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -66,12 +68,24 @@ const styles = {
 class FormReq extends React.Component {
   state = {
     visible: false,
-    EmpID: "",
-    EmpFName: "",
-    EmpLName: "",
-    EmpGroup: "",
-    EmpDepartment: "",
-    EmpLevel: ""
+    EmpID: "12345",
+    EmpFName: "Ananchai",
+    EmpLName: "Phahupongsub",
+    EmpGroup: "IT",
+    EmpDepartment: "Programming",
+    EmpLevel: "ปฏิบัติการ",
+    TravelTarget: "Support program",
+    WorkType: "Support",
+    DateStart: "2019-01-12",
+    DateFinish: "2019-01-13",
+    TimeStart: "08:00",
+    TimeFinish: "18:00",
+    CostCenter: "LeaderPlanet",
+    CostOther: "",
+    County: "นครปฐม",
+    MoneyTran: "35",
+    country: 1,
+    countryText: "จังหวัด"
   };
 
   showModal = () => {
@@ -93,7 +107,16 @@ class FormReq extends React.Component {
       visible: false
     });
   };
-
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
+  onSelectChange = (value)=>{
+    if(value===1){
+      this.setState({countryText:"จังหวัด"})}
+    else { 
+      this.setState({countryText:"ประเทศ"})}
+    this.setState({country:value})
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -131,6 +154,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="รหัสพนักงาน"
                             type="text"
+                            onChange={this.handleChange("EmpID")}
                             value={this.state.EmpID}
                             fullWidth
                             defaultValue=""
@@ -145,6 +169,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ชื่อ"
                             type="text"
+                            onChange={this.handleChange("EmpFName")}
                             value={this.state.EmpFName}
                             fullWidth
                             defaultValue=""
@@ -157,6 +182,7 @@ class FormReq extends React.Component {
                         <GridItem xs={12} sm={12} md={3}>
                           <TextField
                             id="date"
+                            onChange={this.handleChange("EmpLName")}
                             label="ชื่อสกุล"
                             value={this.state.EmpLName}
                             fullWidth
@@ -181,6 +207,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ฝ่าย"
                             value={this.state.EmpGroup}
+                            onChange={this.handleChange("EmpGroup")}
                             type="text"
                             fullWidth
                             defaultValue=""
@@ -195,6 +222,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="แผนก"
                             type="text"
+                            onChange={this.handleChange("EmpDepartment")}
                             value={this.state.EmpDepartment}
                             fullWidth
                             defaultValue=""
@@ -209,6 +237,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ระดับ"
                             fullWidth
+                            onChange={this.handleChange("EmpLevel")}
                             value={this.state.EmpLevel}
                             type="text"
                             defaultValue=""
@@ -219,65 +248,81 @@ class FormReq extends React.Component {
                     </CardBody>
                   </GridItem>
                 </GridContainer>
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={12}>
-                    <CardBody>
-                      <GridContainer>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.labelFlow}>วันที่</h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label=""
-                            type="date"
-                            fullWidth
-                            defaultValue=""
-                            className={classes.textField}
-                            InputLabelProps={{
-                              shrink: true
-                            }}
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.labelFlow}>
-                            อัตราแลกเงินต่างประเทศวันที่
-                          </h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label=""
-                            type="date"
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.labelFlow}>เป็นเงิน</h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label=""
-                            type="text"
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                        <h7 className={classes.label}>บาท</h7>
-                      </GridContainer>
-                    </CardBody>
-                  </GridItem>
-                </GridContainer>
                 <Divider style={{ marginBottom: 5 }} />
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
                       <GridContainer>
+                      <GridItem xs={12} sm={12} md={2}>
+                        <Select defaultValue={1} style={{ width: "100%" , float: "right",}} onChange={this.onSelectChange}>
+                          <Option value={2}>เดินทางไปต่างประเทศ</Option>
+                          <Option value={1}>เดินทางไปจังหวัด</Option>
+                        </Select>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label={this.state.countryText}
+                            fullWidth
+                            onChange={this.handleChange("County")}
+                            value={this.state.County}
+                            type="text"
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                {this.state.country===1?  null:                
+                <GridContainer>
+                <GridItem xs={12} sm={12} md={12}>
+                  <CardBody>
+                    <GridContainer>
+                    <GridItem xs={12} sm={12} md={2}>
+                        <h7 className={classes.labelFlow}>
+                          อัตราแลกเงินต่างประเทศวันที่
+                        </h7>
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={2}>
+                        <TextField
+                          id="date"
+                          label=""
+                          type="date"
+                          fullWidth
+                          onChange={this.handleChange("DateStart")}
+                          value={this.state.DateStart}
+                          defaultValue=""
+                          className={classes.textField}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={1}>
+                        <h7 className={classes.labelFlow}>เป็นเงิน</h7>
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={1}>
+                        <TextField
+                          id="date"
+                          label=""
+                          onChange={this.handleChange("MoneyTran")}
+                          value={this.state.MoneyTran}
+                          type="text"
+                          defaultValue=""
+                          className={classes.textField}
+                        />
+                      </GridItem>
+                      <h7 className={classes.labelFlow}>บาท</h7>
+                    </GridContainer>
+                  </CardBody>
+                </GridItem>
+              </GridContainer>}
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
                         <GridItem xs={12} sm={12} md={2}>
                           <h7 className={classes.labelFlow}>
-                            รวมค่าเบี้ยเลี้ยง :
+                            รวมค่าเบี้ยเลี้ยง
                           </h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -290,7 +335,7 @@ class FormReq extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
+                        <GridItem xs={12} sm={12} md={1}>
                           <h7 className={classes.labelFlow}>รวมค่าที่พัก</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -304,7 +349,7 @@ class FormReq extends React.Component {
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.labelFlow}>รวมค่าพาหนะ</h7>
+                          <h7 className={classes.labelFlow}>รวมค่าเดินทางและพาหนะ</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
                           <TextField
@@ -325,57 +370,6 @@ class FormReq extends React.Component {
                     <CardBody>
                       <GridContainer>
                         <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.labelFlow}>
-                            รวมค่าใช้รถยนต์ส่วนตัว
-                          </h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label=""
-                            type="text"
-                            fullWidth
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.labelFlow}>รวมค่าทางด่วน</h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label=""
-                            type="text"
-                            fullWidth
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.labelFlow}>
-                            รวมค่าจอด รถล้างรถ
-                          </h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label=""
-                            fullWidth
-                            type="text"
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                      </GridContainer>
-                    </CardBody>
-                  </GridItem>
-                </GridContainer>
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={12}>
-                    <CardBody>
-                      <GridContainer>
-                        <GridItem xs={12} sm={12} md={5}>
                           <h7 className={classes.labelFlow}>รวมทั้งหมด</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -395,7 +389,7 @@ class FormReq extends React.Component {
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
-                      <DataTable />
+                      <DataTable country={this.state.country}/>
                     </CardBody>
                   </GridItem>
                 </GridContainer>
@@ -410,12 +404,13 @@ class FormReq extends React.Component {
                 </Button>
                 <Modal
                   style={{ marginLeft: "15%", marginTop: "10" }}
-                  width="85%"
+                  width="75%"
                   visible={this.state.visible}
                   onOk={this.handleOk}
                   onCancel={this.handleCancel}
+                  footer={null}
                 >
-                  <Modalform3 />{" "}
+                  <Modalform3 dataTravelReq={this.state}/>
                 </Modal>
               </CardFooter>
             </Card>

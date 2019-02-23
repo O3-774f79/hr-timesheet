@@ -75,7 +75,7 @@ class FormReq extends React.Component {
     CostOther: "",
     County: "",
     Province: "นครปฐม",
-    MoneyTran: ""
+    MoneyTran: "35"
   };
 
   showModal = () => {

@@ -17,12 +17,12 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import DataTable from "./Table2";
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import Table2 from "./Table2";
-
-const Step = Steps.Step;
+import Modalform3 from "./ModalFormValue";
+import { Divider } from "@material-ui/core";
 
 const styles = {
   cardCategoryWhite: {
@@ -41,12 +41,13 @@ const styles = {
     marginBottom: "3px",
     textDecoration: "none"
   },
-  labelFlow: {
-    float: "right"
-  },
   label: {
     float: "right",
-    marginTop: 30
+    marginTop: 18
+  },
+  labelFlow: {
+    float: "right",
+    marginTop: 3
   },
   headerAppBar: {
     backgroundColor: "rgb(255, 230, 204)",
@@ -62,312 +63,323 @@ const styles = {
   }
 };
 
-function Modalform3(props) {
-  const { classes } = props;
-  return (
-    <div>
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={12}>
-          <Card>
-            <CardHeader color="info">
-              <h3 className={classes.cardTitleWhite}>
-                การเบิกเบี้ยเลี้ยงภายในและต่างประเทศ
-              </h3>
-              {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
-            </CardHeader>
-            <CardBody>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <AppBar className={classes.headerAppBar} position="static">
-                    <Toolbar variant="dense">
-                      <Typography variant="h6" color="inherit">
-                        <PersonPinIcon /> พนักงาน
-                      </Typography>
-                    </Toolbar>
-                  </AppBar>
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.label}>รหัสพนักงาน</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label="รหัสพนักงาน"
-                          type="text"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>ชื่อ</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <TextField
-                          id="date"
-                          label="ชื่อ"
-                          type="text"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>ชื่อสกุล</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <TextField
-                          id="date"
-                          label="ชื่อสกุล"
-                          fullWidth
-                          type="text"
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                    </GridContainer>
-                  </CardBody>
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.label}>ฝ่าย</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label="ฝ่าย"
-                          type="text"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>แผนก</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <TextField
-                          id="date"
-                          label="แผนก"
-                          type="text"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>ระดับ</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <TextField
-                          id="date"
-                          label="ระดับ"
-                          fullWidth
-                          type="text"
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                    </GridContainer>
-                  </CardBody>
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>วันที่</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="date"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                          InputLabelProps={{
-                            shrink: true
-                          }}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>
-                          อัตราแลกเงินต่างประเทศวันที่
-                        </h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="date"
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.labelFlow}>เป็นเงิน</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="text"
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <h7 className={classes.labelFlow}>บาท</h7>
-                    </GridContainer>
-                  </CardBody>
-                </GridItem>
-              </GridContainer>
-              <hr />
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>
-                          รวมค่าเบี้ยเลี้ยง :
-                        </h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="number"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>รวมค่าที่พัก</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="number"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>รวมค่าพาหนะ</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          fullWidth
-                          type="text"
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                    </GridContainer>
-                  </CardBody>
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>
-                          รวมค่าใช้รถยนต์ส่วนตัว
-                        </h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="text"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>รวมค่าทางด่วน</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="text"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>
-                          รวมค่าจอด รถล้างรถ
-                        </h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          fullWidth
-                          type="text"
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                    </GridContainer>
-                  </CardBody>
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={5}>
-                        <h7 className={classes.labelFlow}>รวมทั้งหมด</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="text"
-                          fullWidth
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                    </GridContainer>
-                  </CardBody>
-                </GridItem>
-              </GridContainer>
-            </CardBody>
-            <CardBody>
-              <Table2 />
-            </CardBody>
-            <CardFooter className={classes.positionButton}>
-              <Button colo="success" className={classes.buttonSubmit}>
-                ตกลง
-              </Button>
-            </CardFooter>
-          </Card>
-        </GridItem>
-      </GridContainer>
-    </div>
-  );
-}
+class FormReq extends React.Component {
+  state = {
+    visible: false,
+    EmpID: "",
+    EmpFName: "",
+    EmpLName: "",
+    EmpGroup: "",
+    EmpDepartment: "",
+    EmpLevel: "",
+    TravelTarget: " program",
+    WorkType: "",
+    DateStart: "",
+    DateFinish: "",
+    TimeStart: "",
+    TimeFinish: "",
+    CostCenter: "",
+    CostOther: "",
+    County: "",
+    Province: "",
+    MoneyTran: ""
+  };
 
-export default withStyles(styles)(Modalform3);
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
+  render() {
+    const { classes,dataTravelReq } = this.props;
+    return (
+      <div>
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={12}>
+            <Card>
+              <CardHeader color="info">
+                <h3 className={classes.cardTitleWhite}>
+                  การเบิกเบี้ยเลี้ยงภายในและต่างประเทศ
+                </h3>
+                {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
+              </CardHeader>
+              <CardBody>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <AppBar className={classes.headerAppBar} position="static">
+                      <Toolbar variant="dense">
+                        <Typography variant="h6" color="inherit">
+                          <PersonPinIcon /> พนักงาน
+                        </Typography>
+                      </Toolbar>
+                    </AppBar>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>รหัสพนักงาน</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label="รหัสพนักงาน"
+                            type="text"
+                            onChange={this.handleChange("EmpID")}
+                            value={dataTravelReq.EmpID}
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.label}>ชื่อ</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="date"
+                            label="ชื่อ"
+                            type="text"
+                            onChange={this.handleChange("EmpFName")}
+                            value={dataTravelReq.EmpFName}
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.label}>ชื่อสกุล</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="date"
+                            onChange={this.handleChange("EmpLName")}
+                            label="ชื่อสกุล"
+                            value={dataTravelReq.EmpLName}
+                            fullWidth
+                            type="text"
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ฝ่าย</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label="ฝ่าย"
+                            value={dataTravelReq.EmpGroup}
+                            onChange={this.handleChange("EmpGroup")}
+                            type="text"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.label}>แผนก</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="date"
+                            label="แผนก"
+                            type="text"
+                            onChange={this.handleChange("EmpDepartment")}
+                            value={dataTravelReq.EmpDepartment}
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.label}>ระดับ</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="date"
+                            label="ระดับ"
+                            fullWidth
+                            onChange={this.handleChange("EmpLevel")}
+                            value={dataTravelReq.EmpLevel}
+                            type="text"
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <Divider style={{ marginBottom: 5 }} />
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>
+                            อัตราแลกเงินต่างประเทศวันที่
+                          </h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="date"
+                            fullWidth
+                            onChange={this.handleChange("DateStart")}
+                            value={dataTravelReq.DateStart}
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.labelFlow}>เป็นเงิน</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <TextField
+                            id="date"
+                            label=""
+                            onChange={this.handleChange("MoneyTran")}
+                            value={dataTravelReq.MoneyTran}
+                            type="text"
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <h7 className={classes.labelFlow}>บาท</h7>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>
+                            รวมค่าเบี้ยเลี้ยง
+                          </h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="number"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.labelFlow}>รวมค่าที่พัก</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="number"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>รวมค่าเดินทางและพาหนะ</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            fullWidth
+                            type="text"
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>รวมทั้งหมด</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="text"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <DataTable country={dataTravelReq.country}/>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+              </CardBody>
+              <CardFooter className={classes.positionButton}>
+                <Button
+                  color="success"
+                  className={classes.buttonSubmit}
+                >
+                  ส่งอนุมัติ
+                </Button>
+                <Modal
+                  style={{ marginLeft: "15%", marginTop: "10" }}
+                  width="85%"
+                  visible={this.state.visible}
+                  onOk={this.handleOk}
+                  onCancel={this.handleCancel}
+                  footer={null}
+                >
+                  <Modalform3 />{" "}
+                </Modal>
+              </CardFooter>
+            </Card>
+          </GridItem>
+        </GridContainer>
+      </div>
+    );
+  }
+}
+export default withStyles(styles)(FormReq);

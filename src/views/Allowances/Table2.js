@@ -110,98 +110,86 @@ class EditableCell extends React.Component {
     );
   }
 }
-
 export default class Table2 extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      dataSource: [{
+        name: "Screem",
+        platform: "iOS",
+        version: "10.3.4.5654",
+        upgradeNum: 500,
+        creator: "Jack",
+        createdAt: "2014-12-24 23:12:00"
+      }],
+      count: 2,
+      visible: false ,
+      country: ""
+    };
     this.columns = [
       {
         title: "วันที่",
-        dataIndex: "name",
+        dataIndex: "dateStart",
         editable: true,
         width: 100,
-        render: () => <Input />
       },
       {
         title: "เวลาเริ่มปฎิบัติงาน",
-        dataIndex: "age",
+        dataIndex: "timeStart",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "เวลาสิ้นสุด",
-        dataIndex: "age",
+        dataIndex: "timeFinish",
         width: 100,
-        render: () => <Input />
       },
       {
-        title: "ปฏิบัติงานภายในประเทศ: จังหวัด",
-        dataIndex: "address",
+        title: this.state.country,
+        dataIndex: "country",
         width: 100,
-        render: () => <Input />
-      },
-      {
-        title: "ปฏิบัติงานต่างประเทศ: ประเทศ",
-        dataIndex: "address",
-        width: 100,
-        render: () => <Input />
       },
       {
         title: "รวมวันปฏิบัติงาน",
-        dataIndex: "address",
+        dataIndex: "total",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "รายละเอียด",
         dataIndex: "address",
         width: 300,
-        render: () => <Input type="textarea" />
       },
       {
         title: "ค่าเบี้ยเลี้ยง",
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าที่พัก",
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าพาหนะ",
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าใช้รถยนต์ส่วนตัว",
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าทางด่วน",
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       },
       {
         title: "ค่าจอดรถ & ค่าล้างรถ",
         dataIndex: "address",
         width: 100,
-        render: () => <Input />
       }
     ];
-
-    this.state = {
-      dataSource: [],
-      count: 2
-    };
   }
-
   handleDelete = key => {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
@@ -257,13 +245,6 @@ export default class Table2 extends React.Component {
     });
     return (
       <div>
-        <Button
-          onClick={this.handleAdd}
-          type="primary"
-          style={{ marginBottom: 16 }}
-        >
-          เพิ่มรายการ
-        </Button>
         <Table
           components={components}
           rowClassName={() => "editable-row"}
