@@ -132,10 +132,11 @@ class FormReq extends React.Component {
                             name="email"
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.label}>ชื่อ :</h7>
+                          <h7 className={classes.label}>ชื่อ</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={3}>
                           <TextField
@@ -148,10 +149,11 @@ class FormReq extends React.Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.label}>ชื่อสกุล :</h7>
+                          <h7 className={classes.label}>ชื่อสกุล</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={3}>
                           <TextField
@@ -164,17 +166,18 @@ class FormReq extends React.Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
                       <GridContainer>
                       <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.label}>แผนก :</h7>
+                          <h7 className={classes.label}>ฝ่าย</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
                           <TextField
                             id="outlined-email-input"
-                            label="แผนก"
+                            label="ฝ่าย"
                             className={classes.textField}
                             type="email"
                             onChange={this.handleChange("EmpGroup")}
@@ -182,15 +185,16 @@ class FormReq extends React.Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.label}>ฝ่าย :</h7>
+                          <h7 className={classes.label}>แผนก</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={3}>
                           <TextField
                             id="outlined-email-input"
-                            label="ฝ่าย"
+                            label="แผนก"
                             className={classes.textField}
                             type="email"
                             onChange={this.handleChange("EmpDepartment")}
@@ -198,10 +202,11 @@ class FormReq extends React.Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.label}>ระดับ :</h7>
+                          <h7 className={classes.label}>ระดับ</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
                           <TextField
@@ -214,15 +219,17 @@ class FormReq extends React.Component {
                             value={this.state.EmpLevel}
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
+                      <hr />
                       <GridContainer>
                         <GridItem xs={12} sm={12} md={12}>
                           <GridContainer>
                             <GridItem xs={12} sm={12} md={2}>
                               <h7 className={classes.label}>
-                                เลขที่ทะเบียนรถ :
+                                เลขที่ทะเบียนรถ
                               </h7>
                             </GridItem>
                             <GridItem xs={12} sm={12} md={2}>
@@ -258,18 +265,18 @@ class FormReq extends React.Component {
                     </CardBody>
                   </GridItem>
                 </GridContainer>
-                <hr />
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
                     <GridContainer>
                       <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.label}>จำนวนระยะทางรวม :</h7>
+                        <h7 className={classes.label}>จำนวนระยะทางรวม</h7>
                       </GridItem>
                       <GridItem xs={12} sm={12} md={2}>
                         <TextField
                           id="date"
                           label="จำนวนระยะทางรวม"
                           type="text"
+                          disabled
                           fullWidth
                           className={classes.textField}
                         />
@@ -284,6 +291,7 @@ class FormReq extends React.Component {
                           id="date"
                           label="เงินช่วยเหลือค่าพาหนะ"
                           type="text"
+                          disabled
                           fullWidth
                           className={classes.textField}
                         />

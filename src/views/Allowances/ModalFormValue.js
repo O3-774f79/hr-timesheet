@@ -121,10 +121,23 @@ class Modalform3 extends React.Component {
                           className={classes.textField}
                         />
                       </GridItem>
+                      <GridItem xs={12} sm={12} md={1}>
+                        <h7 className={classes.label}>วันที่สิ้นสุด</h7>
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={2}>
+                        <TextField
+                          id="date"
+                          label="  "
+                          type="date"
+                          fullWidth
+                          defaultValue=""
+                          className={classes.textField}
+                        />
+                      </GridItem>
                       <GridItem xs={12} sm={12} md={2}>
                         <h7 className={classes.label}>เวลาเริ่มปฎิบัติงาน</h7>
                       </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
+                      <GridItem xs={12} sm={12} md={1}>
                         <TextField
                           id="date"
                           label="  "
@@ -137,7 +150,7 @@ class Modalform3 extends React.Component {
                       <GridItem xs={12} sm={12} md={1}>
                         <h7 className={classes.label}>เวลาสิ้นสุด</h7>
                       </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
+                      <GridItem xs={12} sm={12} md={1}>
                         <TextField
                           id="date"
                           label=" "
@@ -152,9 +165,9 @@ class Modalform3 extends React.Component {
                 </GridItem>
               </GridContainer>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
                       <GridItem xs={12} sm={12} md={2}>
                         <Select defaultValue={1} style={{ width: "100%" , float: "right",}} onChange={this.onSelectChange}>
                           <Option value={2}>เดินทางไปต่างประเทศ</Option>
@@ -173,23 +186,51 @@ class Modalform3 extends React.Component {
                             className={classes.textField}
                           />
                         </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>รวมวันปฏิบัติงาน</h7>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                {this.state.country===1?  null:                
+                <GridContainer>
+                <GridItem xs={12} sm={12} md={12}>
+                  <CardBody>
+                    <GridContainer>
+                    <GridItem xs={12} sm={12} md={2}>
+                        <h7 className={classes.labelFlow}>
+                          อัตราแลกเงินต่างประเทศวันที่
+                        </h7>
                       </GridItem>
                       <GridItem xs={12} sm={12} md={2}>
                         <TextField
                           id="date"
-                          label="รวมวันปฏิบัติงาน"
-                          type="text"
+                          label=""
+                          type="date"
                           fullWidth
+                          onChange={this.handleChange("DateStart")}
+                          value={this.state.DateStart}
                           defaultValue=""
                           className={classes.textField}
                         />
                       </GridItem>
+                      <GridItem xs={12} sm={12} md={1}>
+                        <h7 className={classes.labelFlow}>เป็นเงิน</h7>
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={1}>
+                        <TextField
+                          id="date"
+                          label=""
+                          onChange={this.handleChange("MoneyTran")}
+                          value={this.state.MoneyTran}
+                          type="text"
+                          defaultValue=""
+                          className={classes.textField}
+                        />
+                      </GridItem>
+                      <h7 className={classes.labelFlow}>บาท</h7>
                     </GridContainer>
                   </CardBody>
                 </GridItem>
-              </GridContainer>
+              </GridContainer>}
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
                   <CardBody>

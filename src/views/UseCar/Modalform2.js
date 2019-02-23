@@ -127,6 +127,7 @@ const { classes,dataTravelReq } = this.props;
                           value={dataTravelReq.EmpID}
                           onChange={this.handleChange("EmpID")}
                           margin="normal"
+                          disabled
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -142,6 +143,7 @@ const { classes,dataTravelReq } = this.props;
                           onChange={this.handleChange("EmpFName")}
                           fullWidth
                           margin="normal"
+                          disabled
                         />
                       </GridItem>
                       <GridItem xs={12} sm={12} md={1}>
@@ -157,6 +159,7 @@ const { classes,dataTravelReq } = this.props;
                           onChange={this.handleChange("EmpLName")}
                           fullWidth
                           margin="normal"
+                          disabled
                         />
                       </GridItem>
                     </GridContainer>
@@ -175,6 +178,7 @@ const { classes,dataTravelReq } = this.props;
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -191,6 +195,7 @@ const { classes,dataTravelReq } = this.props;
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -207,6 +212,7 @@ const { classes,dataTravelReq } = this.props;
                             value={dataTravelReq.EmpLevel}
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>

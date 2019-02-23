@@ -152,6 +152,7 @@ class Modalform extends Component {
                             name="email"
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -169,6 +170,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -186,6 +188,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -205,6 +208,7 @@ class Modalform extends Component {
                             name="email"
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -222,6 +226,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -239,6 +244,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -273,6 +279,7 @@ class Modalform extends Component {
                             name="email"
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -290,6 +297,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -303,6 +311,7 @@ class Modalform extends Component {
                             label="Birthday"
                             type="date"
                             fullWidth
+                            disabled
                             value={dataTravelReq.DateStart}
                             onChange={this.handleChange("DateStart")}
                             defaultValue=""
@@ -320,6 +329,7 @@ class Modalform extends Component {
                             id="date"
                             label="Birthday"
                             type="date"
+                            disabled
                             value={dataTravelReq.DateFinish}
                             onChange={this.handleChange("DateFinish")}
                             fullWidth
@@ -340,6 +350,7 @@ class Modalform extends Component {
                             id="time"
                             label="เวลาเริ่มต้น"
                             type="time"
+                            disabled
                             // defaultValue="07:30"
                             value={dataTravelReq.TimeStart}
                             onChange={this.handleChange("TimeStart")}
@@ -361,6 +372,7 @@ class Modalform extends Component {
                             id="time"
                             label="เวลาสิ้นสุด"
                             type="time"
+                            disabled
                             // defaultValue="07:30"
                             value={dataTravelReq.TimeFinish}
                             onChange={this.handleChange("TimeFinish")}
@@ -391,6 +403,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -408,6 +421,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -427,6 +441,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -444,6 +459,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -463,6 +479,7 @@ class Modalform extends Component {
                             fullWidth
                             autoComplete="email"
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>

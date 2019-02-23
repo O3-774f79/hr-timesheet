@@ -149,6 +149,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -164,6 +165,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -179,6 +181,7 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -202,6 +205,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -217,6 +221,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -232,6 +237,7 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -239,46 +245,6 @@ class FormReq extends React.Component {
                   </GridItem>
                 </GridContainer>
                 <Divider style={{ marginBottom: 5 }} />
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={12}>
-                    <CardBody>
-                      <GridContainer>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <h7 className={classes.labelFlow}>
-                            อัตราแลกเงินต่างประเทศวันที่
-                          </h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label=""
-                            type="date"
-                            fullWidth
-                            onChange={this.handleChange("DateStart")}
-                            value={dataTravelReq.DateStart}
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.labelFlow}>เป็นเงิน</h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <TextField
-                            id="date"
-                            label=""
-                            onChange={this.handleChange("MoneyTran")}
-                            value={dataTravelReq.MoneyTran}
-                            type="text"
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                        <h7 className={classes.labelFlow}>บาท</h7>
-                      </GridContainer>
-                    </CardBody>
-                  </GridItem>
-                </GridContainer>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
@@ -296,6 +262,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -309,6 +276,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -322,6 +290,59 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
+                            disabled
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>
+                            รวมค่าอาหาร
+                          </h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="number"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.labelFlow}>รวมค่ารับรอง</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="number"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>อื่นๆ</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            fullWidth
+                            type="text"
+                            defaultValue=""
+                            className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -343,6 +364,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -364,16 +386,6 @@ class FormReq extends React.Component {
                 >
                   ส่งอนุมัติ
                 </Button>
-                <Modal
-                  style={{ marginLeft: "15%", marginTop: "10" }}
-                  width="85%"
-                  visible={this.state.visible}
-                  onOk={this.handleOk}
-                  onCancel={this.handleCancel}
-                  footer={null}
-                >
-                  <Modalform3 />{" "}
-                </Modal>
               </CardFooter>
             </Card>
           </GridItem>

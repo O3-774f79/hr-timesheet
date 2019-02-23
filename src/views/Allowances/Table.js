@@ -131,73 +131,43 @@ export default class EditableTable extends React.Component {
         title: "วันที่",
         dataIndex: "dateStart",
         editable: true,
-        width: 100,
+        width: 150,
+      },
+      {
+        title: "วันที่สิ้นสุด",
+        dataIndex: "dateFinish",
+        editable: true,
+        width: 150,
       },
       {
         title: "เวลาเริ่มปฎิบัติงาน",
         dataIndex: "timeStart",
         editable: true,
-        width: 100,
+        width: 150,
       },
       {
         title: "เวลาสิ้นสุด",
-        dataIndex: "dateFinish",
+        dataIndex: "timeFinish",
         editable: true,
-        width: 100,
+        width: 150,
       },
       {
         title: "จุดหมายปลายทาง",
         dataIndex: "country",
         editable: true,
-        width: 100,
+        width: 150,
       },
       {
         title: "รวมวันปฏิบัติงาน",
         dataIndex: "total",
         editable: true,
-        width: 100,
+        width: 150,
       },
       {
         title: "รายละเอียด",
         dataIndex: "detail",
         editable: true,
-        width: 300,
       },
-      {
-        title: "ค่าเบี้ยเลี้ยง",
-        dataIndex: "address",
-        editable: true,
-        width: 100,
-      },
-      {
-        title: "ค่าที่พัก",
-        dataIndex: "address",
-        editable: true,
-        width: 100,
-      },
-      {
-        title: "ค่าพาหนะ",
-        dataIndex: "address",
-        editable: true,
-        width: 100,
-      },
-      {
-        title: "ค่าใช้รถยนต์ส่วนตัว",
-        editable: true,
-        dataIndex: "address",
-        width: 100,
-      },
-      {
-        title: "ค่าทางด่วน",
-        dataIndex: "address",
-        editable: true,
-        width: 100,
-      },
-      {
-        title: "ค่าจอดรถ & ค่าล้างรถ",
-        dataIndex: "address",
-        width: 100,
-      }
     ];
   }
 
@@ -240,24 +210,28 @@ export default class EditableTable extends React.Component {
   };
   expandedRowRender = () => {
     const columns = [
-      { title: "รายการ", dataIndex: "list",width: "30%" , 
-      render: (text, row, index) => {
-        if (index == 0) {
-          return <a href="javascript:;">{text}</a>;
-        }
-        return {
-          children: <a href="javascript:;">{text}</a>,
-          props: {
-            colSpan: 2,
-          },
-        };
-      },}, 
+      { title: "รายการ", dataIndex: "list",width: "30%"}, 
       { title: "เป็นเงิน/บาท", dataIndex: "sum",width: 5},
     ];
     const data = [{
       list: "2014-12-24 23:12:00",
       sum: "This is production name",
-    }]
+    },{
+      list: "2014-12-24 23:12:00",
+      sum: "This is production name",
+    },{
+      list: "2014-12-24 23:12:00",
+      sum: "This is production name",
+    },{
+      list: "2014-12-24 23:12:00",
+      sum: "This is production name",
+    },{
+      list: "2014-12-24 23:12:00",
+      sum: "This is production name",
+    },{
+      list: "2014-12-24 23:12:00",
+      sum: "This is production name",
+    },]
     return <Table columns={columns} dataSource={data} pagination={false} size="middle"/>;
   };
   handleSave = row => {
@@ -310,13 +284,12 @@ export default class EditableTable extends React.Component {
           bordered
           dataSource={dataSource}
           columns={columns}
-          scroll={{ x: 2000 }}
           footer={null}
           expandedRowRender={this.expandedRowRender}
         />
         <Modal
           style={{ marginLeft: "15%", marginTop: "10" }}
-          width="85%"
+          width="75%"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}

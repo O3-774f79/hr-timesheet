@@ -135,6 +135,7 @@ class FormReq extends React.Component {
                             value={this.state.EmpID}
                             fullWidth
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -149,6 +150,7 @@ class FormReq extends React.Component {
                             value={this.state.EmpFName}
                             fullWidth
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -163,6 +165,7 @@ class FormReq extends React.Component {
                             value={this.state.EmpLName}
                             fullWidth
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -179,6 +182,7 @@ class FormReq extends React.Component {
                             value={this.state.EmpGroup}
                             fullWidth
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -193,6 +197,7 @@ class FormReq extends React.Component {
                             value={this.state.EmpDepartment}
                             fullWidth
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -207,6 +212,7 @@ class FormReq extends React.Component {
                             value={this.state.EmpLevel}
                             fullWidth
                             margin="normal"
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>

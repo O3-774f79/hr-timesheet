@@ -27,11 +27,19 @@ const styles = theme => ({
 class SimpleExpansionPanel extends React.Component {
   state = {
     expanded: 'panel1',
+    expressway:'',
+    travelSum: 0
   };
   handleChange = panel => (event, expanded) => {
     this.setState({
       expanded: expanded ? panel : false,
     });
+  };
+  onhandleChange = name => event => {
+    event.preventDefault()
+    this.setState({ [name]: event.target.value });
+    // this.setState({ travelSum: this.state.expressway });
+    console.log(this.state.expressway)
   };
   render(){
   const { classes } = this.props;
@@ -45,7 +53,7 @@ class SimpleExpansionPanel extends React.Component {
             >
           >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>ค่าเดินทางและพาหนะ</Typography>
+              <Typography className={classes.heading}>ค่าเดินทางและพาหนะ บาท</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography>
@@ -54,9 +62,10 @@ class SimpleExpansionPanel extends React.Component {
               id="standard-name"
               label="ค่าทางด่วน"
               className={classes.textField}
+              onChange={this.onhandleChange("expressway")}
+              value={this.state.expressway}
               margin="normal"
             />
-
             <TextField
               id="standard-uncontrolled"
               label="ค่าจอด รถล้างรถ"

@@ -45,7 +45,7 @@ const styles = {
   },
   label: {
     float: "right",
-    marginTop: 18
+    marginTop: 28
   },
   labelFlow: {
     float: "right",
@@ -159,6 +159,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -174,6 +175,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -189,6 +191,7 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -212,6 +215,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -227,6 +231,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -242,6 +247,7 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
+                            disabled
                           />
                         </GridItem>
                       </GridContainer>
@@ -249,73 +255,6 @@ class FormReq extends React.Component {
                   </GridItem>
                 </GridContainer>
                 <Divider style={{ marginBottom: 5 }} />
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={12}>
-                    <CardBody>
-                      <GridContainer>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <Select defaultValue={1} style={{ width: "100%" , float: "right",}} onChange={this.onSelectChange}>
-                          <Option value={2}>เดินทางไปต่างประเทศ</Option>
-                          <Option value={1}>เดินทางไปจังหวัด</Option>
-                        </Select>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <TextField
-                            id="date"
-                            label={this.state.countryText}
-                            fullWidth
-                            onChange={this.handleChange("County")}
-                            value={this.state.County}
-                            type="text"
-                            defaultValue=""
-                            className={classes.textField}
-                          />
-                        </GridItem>
-                      </GridContainer>
-                    </CardBody>
-                  </GridItem>
-                </GridContainer>
-                {this.state.country===1?  null:                
-                <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CardBody>
-                    <GridContainer>
-                    <GridItem xs={12} sm={12} md={2}>
-                        <h7 className={classes.labelFlow}>
-                          อัตราแลกเงินต่างประเทศวันที่
-                        </h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
-                        <TextField
-                          id="date"
-                          label=""
-                          type="date"
-                          fullWidth
-                          onChange={this.handleChange("DateStart")}
-                          value={this.state.DateStart}
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.labelFlow}>เป็นเงิน</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <TextField
-                          id="date"
-                          label=""
-                          onChange={this.handleChange("MoneyTran")}
-                          value={this.state.MoneyTran}
-                          type="text"
-                          defaultValue=""
-                          className={classes.textField}
-                        />
-                      </GridItem>
-                      <h7 className={classes.labelFlow}>บาท</h7>
-                    </GridContainer>
-                  </CardBody>
-                </GridItem>
-              </GridContainer>}
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
@@ -350,6 +289,55 @@ class FormReq extends React.Component {
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
                           <h7 className={classes.labelFlow}>รวมค่าเดินทางและพาหนะ</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            fullWidth
+                            type="text"
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>
+                            รวมค่าอาหาร
+                          </h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="number"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.labelFlow}>รวมค่ารับรอง</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label=""
+                            type="number"
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.labelFlow}>อื่นๆ</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
                           <TextField
