@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Component} from "react";
 //@antD component
 import "antd/dist/antd.css";
 import { Table, Input, Popconfirm, Form, Modal, Steps, Icon } from "antd";
@@ -58,9 +58,23 @@ const styles = {
     justifyContent: "center"
   }
 };
-
-function Modalform2(props) {
-  const { classes } = props;
+class Modalform2 extends Component {
+  state = {
+    visible: false,
+    EmpID: "",
+    EmpFName: "",
+    EmpLName: "",
+    EmpGroup: "",
+    EmpDepartment: "",
+    EmpLevel: "",
+    CarID: '',
+    Carleange: ''
+  };
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
+render(){
+const { classes,dataTravelReq } = this.props;
   return (
     <div>
       <GridContainer>
@@ -110,8 +124,8 @@ function Modalform2(props) {
                           className={classes.textField}
                           type="email"
                           fullWidth
-                          name="email"
-                          autoComplete="email"
+                          value={dataTravelReq.EmpID}
+                          onChange={this.handleChange("EmpID")}
                           margin="normal"
                         />
                       </GridItem>
@@ -124,9 +138,9 @@ function Modalform2(props) {
                           label="ชื่อ"
                           className={classes.textField}
                           type="email"
-                          name="email"
+                          value={dataTravelReq.EmpFName}
+                          onChange={this.handleChange("EmpFName")}
                           fullWidth
-                          autoComplete="email"
                           margin="normal"
                         />
                       </GridItem>
@@ -139,94 +153,64 @@ function Modalform2(props) {
                           label="ชื่อสกุล"
                           className={classes.textField}
                           type="email"
-                          name="email"
+                          value={dataTravelReq.EmpLName}
+                          onChange={this.handleChange("EmpLName")}
                           fullWidth
-                          autoComplete="email"
                           margin="normal"
                         />
                       </GridItem>
                     </GridContainer>
                     <GridContainer>
                       <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>ฝ่าย</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <TextField
-                          id="outlined-email-input"
-                          label="ฝ่าย"
-                          className={classes.textField}
-                          type="email"
-                          fullWidth
-                          name="email"
-                          autoComplete="email"
-                          margin="normal"
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>แผนก</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <TextField
-                          id="outlined-email-input"
-                          label="แผนก"
-                          className={classes.textField}
-                          type="email"
-                          name="email"
-                          fullWidth
-                          autoComplete="email"
-                          margin="normal"
-                        />
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={1}>
-                        <h7 className={classes.label}>ระดับ</h7>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={3}>
-                        <TextField
-                          id="outlined-email-input"
-                          label="ระดับ"
-                          className={classes.textField}
-                          type="email"
-                          name="email"
-                          fullWidth
-                          autoComplete="email"
-                          margin="normal"
-                        />
-                      </GridItem>
-                    </GridContainer>
+                          <h7 className={classes.label}>แผนก :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="แผนก"
+                            className={classes.textField}
+                            type="email"
+                            onChange={this.handleChange("EmpGroup")}
+                            value={dataTravelReq.EmpGroup}
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.label}>ฝ่าย :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ฝ่าย"
+                            className={classes.textField}
+                            type="email"
+                            onChange={this.handleChange("EmpDepartment")}
+                            value={dataTravelReq.EmpDepartment}
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.label}>ระดับ :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ระดับ"
+                            className={classes.textField}
+                            type="email"
+                            fullWidth
+                            onChange={this.handleChange("EmpLevel")}
+                            value={dataTravelReq.EmpLevel}
+                            autoComplete="email"
+                            margin="normal"
+                          />
+                        </GridItem>
+                      </GridContainer>
                   </CardBody>
-                </GridItem>
-              </GridContainer>
-              <hr />
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <GridContainer>
-                    <GridItem xs={12} sm={12} md={2}>
-                      <h7 className={classes.label}>จำนวนระยะทางรวม :</h7>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={2}>
-                      <TextField
-                        id="date"
-                        label="จำนวนระยะทางรวม"
-                        type="text"
-                        fullWidth
-                        className={classes.textField}
-                      />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={3}>
-                      <h7 className={classes.label}>
-                        การคำนวณเงินช่วยเหลือค่าพาหนะ (6 บาท / กิโลเมตร)
-                      </h7>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={2}>
-                      <TextField
-                        id="date"
-                        label="เงินช่วยเหลือค่าพาหนะ"
-                        type="text"
-                        fullWidth
-                        className={classes.textField}
-                      />
-                    </GridItem>
-                  </GridContainer>
                 </GridItem>
               </GridContainer>
             </CardBody>
@@ -244,5 +228,5 @@ function Modalform2(props) {
     </div>
   );
 }
-
+}
 export default withStyles(styles)(Modalform2);

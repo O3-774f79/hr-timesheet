@@ -292,6 +292,7 @@ export default class EditableTable extends React.Component {
           dataSource={dataSource}
           columns={columns}
           scroll={{ x: 2000 }}
+          footer={null}
         />
         <Modal
           style={{ marginLeft: "15%", marginTop: "10" }}
@@ -299,6 +300,7 @@ export default class EditableTable extends React.Component {
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
+          footer={null}
         >
           <ModalFormValue />{" "}
         </Modal>

@@ -3,9 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import {
-  Table, Input, Button, Popconfirm, Form,
+  Table, Input, Button, Popconfirm, Form,Modal
 } from 'antd';
 import data from './data'
+import ModalFormValue from './ModalFormValue'
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
@@ -167,7 +168,25 @@ export default class EditableTable extends React.Component {
       count: 2,
     };
   }
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
 
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
   handleDelete = (key) => {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
@@ -226,7 +245,11 @@ export default class EditableTable extends React.Component {
     });
     return (
       <div>
-        <Button onClick={this.handleAdd} type="primary" style={{ marginBottom: 16 }}>
+        <Button 
+        // onClick={this.handleAdd}
+        onClick={this.showModal} 
+        type="primary" 
+        style={{ marginBottom: 16 }}>
           Add a row
         </Button>
         <Table
@@ -236,6 +259,16 @@ export default class EditableTable extends React.Component {
           dataSource={dataSource}
           columns={columns}
         />
+          <Modal
+          style={{ marginLeft: "15%", marginTop: "10" }}
+          width="75%"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          footer={null}
+        >
+          <ModalFormValue />{" "}
+        </Modal>
       </div>
     );
   }

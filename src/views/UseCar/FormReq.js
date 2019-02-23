@@ -58,7 +58,17 @@ const styles = {
 };
 
 class FormReq extends React.Component {
-  state = { visible: false };
+  state = {
+    visible: false,
+    EmpID: "12345",
+    EmpFName: "Ananchai",
+    EmpLName: "Phahupongsub",
+    EmpGroup: "IT",
+    EmpDepartment: "Programming",
+    EmpLevel: "ปฏิบัติการ",
+    CarID: 'ฬงฬ999',
+    Carleange: '60'
+  };
 
   showModal = () => {
     this.setState({
@@ -79,7 +89,9 @@ class FormReq extends React.Component {
       visible: false
     });
   };
-
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
   render() {
     const { classes } = this.props;
     return (
@@ -113,6 +125,8 @@ class FormReq extends React.Component {
                             id="outlined-email-input"
                             label="รหัสพนักงาน"
                             className={classes.textField}
+                            onChange={this.handleChange("EmpID")}
+                            value={this.state.EmpID}
                             type="email"
                             fullWidth
                             name="email"
@@ -129,7 +143,8 @@ class FormReq extends React.Component {
                             label="ชื่อ"
                             className={classes.textField}
                             type="email"
-                            name="email"
+                            onChange={this.handleChange("EmpFName")}
+                            value={this.state.EmpFName}
                             fullWidth
                             autoComplete="email"
                             margin="normal"
@@ -144,16 +159,48 @@ class FormReq extends React.Component {
                             label="ชื่อสกุล"
                             className={classes.textField}
                             type="email"
-                            name="email"
+                            onChange={this.handleChange("EmpLName")}
+                            value={this.state.EmpLName}
                             fullWidth
                             autoComplete="email"
                             margin="normal"
                           />
                         </GridItem>
                       </GridContainer>
-
                       <GridContainer>
+                      <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>แผนก :</h7>
+                        </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="แผนก"
+                            className={classes.textField}
+                            type="email"
+                            onChange={this.handleChange("EmpGroup")}
+                            value={this.state.EmpGroup}
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
+                          <h7 className={classes.label}>ฝ่าย :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ฝ่าย"
+                            className={classes.textField}
+                            type="email"
+                            onChange={this.handleChange("EmpDepartment")}
+                            value={this.state.EmpDepartment}
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={1}>
                           <h7 className={classes.label}>ระดับ :</h7>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -163,37 +210,8 @@ class FormReq extends React.Component {
                             className={classes.textField}
                             type="email"
                             fullWidth
-                            name="email"
-                            autoComplete="email"
-                            margin="normal"
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.label}>แผนก :</h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={3}>
-                          <TextField
-                            id="outlined-email-input"
-                            label="แผนก"
-                            className={classes.textField}
-                            type="email"
-                            name="email"
-                            fullWidth
-                            autoComplete="email"
-                            margin="normal"
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={1}>
-                          <h7 className={classes.label}>สายงาน :</h7>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={3}>
-                          <TextField
-                            id="outlined-email-input"
-                            label="สายงาน"
-                            className={classes.textField}
-                            type="email"
-                            name="email"
-                            fullWidth
+                            onChange={this.handleChange("EmpLevel")}
+                            value={this.state.EmpLevel}
                             autoComplete="email"
                             margin="normal"
                           />
@@ -211,6 +229,8 @@ class FormReq extends React.Component {
                               <TextField
                                 id="date"
                                 label="เลขที่ทะเบียนรถ"
+                                onChange={this.handleChange("CarID")}
+                                value={this.state.CarID}
                                 type="text"
                                 fullWidth
                                 className={classes.textField}
@@ -226,6 +246,8 @@ class FormReq extends React.Component {
                                 id="date"
                                 label="ระยะทางไปกลับ"
                                 type="text"
+                                onChange={this.handleChange("Carleange")}
+                                value={this.state.Carleange}
                                 fullWidth
                                 className={classes.textField}
                               />
@@ -291,8 +313,9 @@ class FormReq extends React.Component {
                   visible={this.state.visible}
                   onOk={this.handleOk}
                   onCancel={this.handleCancel}
+                  footer={null}
                 >
-                  <Modalform2 />{" "}
+                  <Modalform2 dataTravelReq={this.state} />
                 </Modal>
               </CardFooter>
             </Card>

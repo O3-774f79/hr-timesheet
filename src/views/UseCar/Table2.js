@@ -115,11 +115,11 @@ class EditableCell extends React.Component {
 export default class Table2 extends React.Component {
   constructor(props) {
     super(props);
-    this.columns = [{
+    this.columns = [
+      {
       title: 'วันที่เดินทาง',
       dataIndex: 'startDate',
       editable: true,
-      render: ()=> (<Input />)
     }, {
       title: 'เดินทางจาก',
       dataIndex: 'start',
@@ -149,22 +149,24 @@ export default class Table2 extends React.Component {
       dataIndex: 'summary',
       render: ()=> (<Input />)
     },
-    {
-      title: '',
-      dataIndex: 'operation',
-      render: (text, record) => (
-        this.state.dataSource.length >= 1
-          ? (
-            <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-              <a href="javascript:;"><Button type="danger">Delete</Button></a>
-            </Popconfirm>
-          ) : null
-      ),
-    }];
+    // {
+    //   title: '',
+    //   dataIndex: 'operation',
+    //   render: (text, record) => (
+    //     this.state.dataSource.length >= 1
+    //       ? (
+    //         <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
+    //           <a href="javascript:;"><Button type="danger">Delete</Button></a>
+    //         </Popconfirm>
+    //       ) : null
+    //   ),
+    // }
+  ];
 
     this.state = {
       dataSource: [],
       count: 2,
+      no:1
     };
   }
 
@@ -176,6 +178,7 @@ export default class Table2 extends React.Component {
   handleAdd = () => {
     const { count, dataSource } = this.state;
     const newData = {
+      No: this.state.no++,
       key: ``,
       startDate: ``,
       start: ``,
@@ -226,15 +229,16 @@ export default class Table2 extends React.Component {
     });
     return (
       <div>
-        <Button onClick={this.handleAdd} type="primary" style={{ marginBottom: 16 }}>
+        {/* <Button onClick={this.handleAdd} type="primary" style={{ marginBottom: 16 }}>
           Add a row
-        </Button>
+        </Button> */}
         <Table
           components={components}
           rowClassName={() => 'editable-row'}
           bordered
           dataSource={dataSource}
           columns={columns}
+          footer={null}
         />
       </div>
     );

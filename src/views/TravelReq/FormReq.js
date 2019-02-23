@@ -64,7 +64,7 @@ class FormReq extends React.Component {
     EmpLName: "Phahupongsub",
     EmpGroup: "IT",
     EmpDepartment: "Programming",
-    EmpLevel: "Develper",
+    EmpLevel: "ปฏิบัติการ",
     TravelTarget: "Support program",
     WorkType: "Support",
     DateStart: "2019-01-12",
@@ -421,6 +421,7 @@ class FormReq extends React.Component {
                   visible={this.state.visible}
                   onOk={this.handleOk}
                   onCancel={this.handleCancel}
+                  footer={null}
                 >
                   <Modalform dataTravelReq={this.state} />
                 </Modal>
