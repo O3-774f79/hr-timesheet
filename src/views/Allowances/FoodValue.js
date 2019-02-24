@@ -79,8 +79,10 @@ class SimpleExpansionPanel extends React.Component {
       target:'',
       relation:'',
       helperText: '',
-      country:''
-
+      country:'',
+      inregion: '',
+      allowances: '',
+      exchangeDate:''
   };
   handleChange = panel => (event, expanded) => {
     this.setState({
@@ -168,14 +170,142 @@ class SimpleExpansionPanel extends React.Component {
       }
     }
   };
+  onhandleChangeallowances = event =>{
+    this.setState({allowances:event.target.value})
+    if(this.state.country==="a"){
+      if(event.target.value>this.state.dataSetting_place_A){
+        this.setState({ 
+          allowances: this.state.dataSetting_place_A })
+      }
+    } else if(this.state.country==="b"){
+      if(event.target.value>this.state.dataSetting_place_B){
+        this.setState({ 
+          allowances: this.state.dataSetting_place_B })
+      }
+    } else if(this.state.country==="c"){
+      if(event.target.value>this.state.dataSetting_place_C){
+        this.setState({ 
+          allowances: this.state.dataSetting_place_C })
+      }
+    }else if(this.state.inregion===1){
+      if(event.target.value>this.state.dataSetting_place_TH){
+        this.setState({ 
+          allowances: this.state.dataSetting_place_TH })
+      }
+    }
+  }
   handleChangeSelect = event => {
     this.setState({ country: event.target.value,bugetPlace:'' });
   };
+  handleChangeSelectProvince  = event => {
+    this.setState({inregion: event.target.value,allowances:'' })
+  }
+  onhandleChangeCustume= event=>{
+    this.setState({costume:event.target.value})
+    if(event.target.value>this.state.dataSetting_costume){
+      this.setState({ 
+        costume: this.state.dataSetting_costume})
+    }
+  }
   render(){
   const { classes } = this.props;
   const {expanded} = this.state
   return (
     <div className={classes.root}>
+          <ExpansionPanel
+              square
+              expanded={expanded === 'panel1'}
+              onChange={this.handleChange('panel1')}
+            >
+          >
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography className={classes.heading}>ค่าเบี้ยเลี้ยง</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Typography>
+              <form className={classes.container} noValidate autoComplete="off">
+              <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="age-simple">เดินทาง</InputLabel>
+                    <Select
+                      value={this.state.inregion}
+                      onChange={this.handleChangeSelectProvince}
+                      style={{width:200,marginTop: 30}}
+                      inputProps={{
+                        name: 'age',
+                        id: 'age-simple',
+                      }}
+                    >
+                      <MenuItem value={2}>เดินทางไป ประเทศ</MenuItem>
+                      <MenuItem value={1}>เดินทางไป จังหวัด</MenuItem>
+                     
+                    </Select>
+                  </FormControl>
+                  {this.state.inregion===1?<TextField
+                    id="standard-name"
+                    label="จังหวัด"
+                    className={classes.textField}
+                    onChange={this.onhandleChangeExpressway}
+                    value={this.state.expressway}
+                    type="text"
+                    margin="normal"
+                  />:
+                  <span>
+                   <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="age-simple">ประเทศ</InputLabel>
+                    <Select
+                      value={this.state.country}
+                      onChange={this.handleChangeSelect}
+                      style={{width:200,marginTop: 30}}
+                      inputProps={{
+                        name: 'age',
+                        id: 'age-simple',
+                      }}
+                    >
+                      <MenuItem value="">
+                        <em>ประเทศ</em>
+                      </MenuItem>
+                      <MenuItem value={"a"}>United Kingdom</MenuItem>
+                      <MenuItem value={"b"}>Vatican City State</MenuItem>
+                      <MenuItem value={"c"}>Myanmar</MenuItem>Myanmar
+                    </Select>
+                  </FormControl>
+                       <TextField
+                  id="standard-name"
+                  label="อัตราแลกเงิน ณ วันที่"
+                  className={classes.textField}
+                  onChange={this.handleChange('exchangeDate')}
+                  value={this.state.exchangeDate}
+                  width={200}
+                  type="date"
+                  margin="normal"
+                />
+                       <TextField
+                  id="standard-name"
+                  label="อัตราแลกเปลี่ยน/บาท"
+                  className={classes.textField}
+                  onChange={this.onc}
+                  value={this.state.expressway}
+                  type="text"
+                  margin="normal"
+                />
+                </span>
+                }
+                
+         </form>
+         <form>
+         <TextField
+                  id="standard-name"
+                  label="เบี้ยเลี้ยง"
+                  className={classes.textField}
+                  onChange={this.onhandleChangeallowances}
+                  value={this.state.allowances}
+                  type="text"
+                  margin="normal"
+                />
+         </form>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
           <ExpansionPanel
               square
               expanded={expanded === 'panel1'}
@@ -437,7 +567,7 @@ class SimpleExpansionPanel extends React.Component {
           id="standard-uncontrolled"
           label="ค่าแต่งกาย"
           className={classes.textField}
-          onChange={this.onhandleChange("costume")}
+          onChange={this.onhandleChangeCustume}
           value={this.state.costume}
           margin="normal"
         />
@@ -445,7 +575,7 @@ class SimpleExpansionPanel extends React.Component {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <Button color="success" className={classes.buttonSubmit} style={{float:"right"}}>ตกลง
+      <Button  className={classes.buttonSubmit} style={{align:"right",fontSize:16}}>ตกลง
        </Button>
     </div>
   );

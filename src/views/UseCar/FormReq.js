@@ -311,25 +311,6 @@ class FormReq extends React.Component {
                   </GridItem>
                 </GridContainer>
               </CardBody>
-              {/* <CardFooter className={classes.positionButton}>
-                <Button
-                  color="success"
-                  className={classes.buttonSubmit}
-                  onClick={this.showModal}
-                >
-                  ตรวจสอบรายการอนุมัติ
-                </Button>
-                <Modal
-                  style={{ marginLeft: "15%", marginTop: "10" }}
-                  width="75%"
-                  visible={this.state.visible}
-                  onOk={this.handleOk}
-                  onCancel={this.handleCancel}
-                  footer={null}
-                >
-                  <Modalform2  dataTravelReq={this.state}/>
-                </Modal>
-              </CardFooter> */}
             </Card>
           </GridItem>
         </GridContainer>

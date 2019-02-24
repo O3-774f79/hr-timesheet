@@ -1,7 +1,7 @@
 import React from "react";
 //@antD component
 import "antd/dist/antd.css";
-import { Table, Input, Popconfirm, Form, Modal, Steps, Icon } from "antd";
+import { Modal, Steps, Icon } from "antd";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -20,7 +20,6 @@ import TextField from "@material-ui/core/TextField";
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import Datatable from './Table'
 import Table2 from './Table2'
-import Modalform2 from "./Modalform2";
 
 const Step = Steps.Step;
 
@@ -161,9 +160,8 @@ class Modalform3 extends React.Component {
         <Button 
         // onClick={this.handleAdd}
         onClick={this.showModal} 
-        type="primary" 
-        style={{ marginBottom: 16 }}>
-          Add a row
+        style={{ marginBottom: 16,backgroundColor: "#ffcc00", fontSize:14,color: "#000000"}}>
+          เพิ่มรายการ
         </Button>
         <Modal
           style={{ marginLeft: "15%", marginTop: "10" }}
@@ -322,8 +320,7 @@ class Modalform3 extends React.Component {
                   <CardBody>
                     <GridContainer>
                     <GridItem xs={12} sm={12} md={1} />
-                      <GridItem xs={12} sm={12} md={11}>
-                      
+                      <GridItem xs={12} sm={12} md={11}>         
                       </GridItem>
                     </GridContainer>
                   </CardBody>
@@ -332,7 +329,7 @@ class Modalform3 extends React.Component {
            
             </CardBody>
             <CardFooter className={classes.positionButton}>
-              <Button  onClick={this.onHandleClick} className={classes.buttonSubmit}>
+              <Button  onClick={this.onHandleClick} className={classes.buttonSubmit} style={{fontSize:16}}>
                 ตกลง
               </Button>
             </CardFooter>
@@ -346,6 +343,7 @@ class Modalform3 extends React.Component {
                   color="success"
                   className={classes.buttonSubmit}
                   onClick={this.showModal2}
+                  style={{fontSize:16}}
                 >
                   ตรวจสอบรายการอนุมัติ
                 </Button>
@@ -505,7 +503,7 @@ class Modalform3 extends React.Component {
               <Table2 dataSource={this.state.dataSource}/>
             </CardBody>
             <CardFooter className={classes.positionButton}>
-              <Button color="success"onClick={this.onHandleApprove}className={classes.buttonSubmit}>
+              <Button  onClick={this.onHandleApprove} className={classes.buttonSubmit} style={{fontSize:16}}>
                 ส่งอนุมัติ
               </Button>
             </CardFooter>

@@ -428,7 +428,7 @@ class FormReq extends React.Component {
                 </GridContainer>
               </CardBody>
               <CardFooter className={classes.positionButton}>
-                <Button color="success" onClick={this.showModal} style={{fontSize:16}}>
+                <Button onClick={this.showModal} style={{fontSize:16}} className={classes.buttonSubmit}>
                   ตรวจสอบรายการอนุมัติ
                 </Button>
                 <Modal
