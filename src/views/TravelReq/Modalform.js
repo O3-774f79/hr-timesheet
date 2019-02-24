@@ -80,14 +80,14 @@ class Modalform extends Component {
     MoneyTran: ""
   };
   _onhandleClick = () => {
-    dataTravelReq.pust({
-      key: "0",
-      id: "BRT-6200125",
-      topic: "เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท",
-      startdate: "18/03/2562",
-      enddate: "18/03/2562",
-      status: "รอการอนุมัติ"
-    });
+    // dataTravelReq.pust({
+    //   key: "0",
+    //   id: "BRT-6200125",
+    //   topic: "เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท",
+    //   startdate: "18/03/2562",
+    //   enddate: "18/03/2562",
+    //   status: "รอการอนุมัติ"
+    // });
   };
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });

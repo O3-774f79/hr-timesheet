@@ -156,13 +156,13 @@ export default class EditableTable extends React.Component {
         width: 10,
 
         render: (text, record) => [
-          <Button style={{ backgroundColor: "rgb(51, 204, 51)" }}>
+          <Button style={{ backgroundColor: "rgb(51, 204, 51)" }} onClick={() => this.handleDelete(record.key)}>
             <Done />
           </Button>,
-          <Button style={{ backgroundColor: "rgb(255, 153, 0)" }}>
+          <Button style={{ backgroundColor: "rgb(255, 153, 0)" }} onClick={() => this.handleDelete(record.key)}>
             <Description />
           </Button>,
-          <Button style={{ backgroundColor: "rgb(204, 0, 0)" }}>
+          <Button style={{ backgroundColor: "rgb(204, 0, 0)" }} onClick={() => this.handleDelete(record.key)}>
             <Delete />
           </Button>
         ]
@@ -197,21 +197,6 @@ export default class EditableTable extends React.Component {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
   };
-
-  handleAdd = () => {
-    const { count, dataSource } = this.state;
-    const newData = {
-      key: count,
-      name: `Edward King ${count}`,
-      age: 32,
-      address: `London, Park Lane no. ${count}`
-    };
-    this.setState({
-      dataSource: [...dataSource, newData],
-      count: count + 1
-    });
-  };
-
   handleSave = row => {
     const newData = [...this.state.dataSource];
     const index = newData.findIndex(item => row.key === item.key);
@@ -299,7 +284,7 @@ export default class EditableTable extends React.Component {
     return (
       <div>
         <Button
-          onClick={this.handleAdd}
+          onClick={this.handleDelete}
           type="success"
           style={{
             marginBottom: 16,
@@ -310,7 +295,7 @@ export default class EditableTable extends React.Component {
           อนุมัติ
         </Button>
         <Button
-          onClick={this.handleAdd}
+          onClick={this.handleDelete}
           type="danger"
           style={{ marginBottom: 16 }}
         >

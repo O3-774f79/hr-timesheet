@@ -8,6 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from "@material-ui/core/TextField";
 import Button from "components/CustomButtons/Button.jsx";
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -32,23 +36,23 @@ class SimpleExpansionPanel extends React.Component {
     travelSum: 0,
     user:{},
     data: {},
-      dataSetting_income_th: '',
-      dataSetting_income_A: '',
-      dataSetting_income_B: '',
-      dataSetting_income_C: '',
-      dataSetting_place_TH: '',
-      dataSetting_place_A: '',
-      dataSetting_place_B: '',
-      dataSetting_place_C: '',
-      dataSetting_costume: '',
-      dataSetting_oil: '',
-      dataSetting_taxi: '',
-      dataSetting_car: '',
-      dataSetting_expressway:'',
-      dataSetting_wash_pard:'',
-
-      income_th: '',
-      income_A: '',
+    dataSetting_income_th: '',
+    dataSetting_income_A: '',
+    dataSetting_income_B: '',
+    dataSetting_income_C: '',
+    dataSetting_place_TH: '',
+    dataSetting_place_A: '',
+    dataSetting_place_B: '',
+    dataSetting_place_C: '',
+    dataSetting_costume: '',
+    dataSetting_oil: '',
+    dataSetting_taxi: '',
+    dataSetting_car: '',
+    dataSetting_expressway:'',
+    dataSetting_wash_pard:'',
+    income_th: '',
+    FlightTicket:'',
+    income_A: '',
       income_B: '',
       income_C: '',
       place_TH: '',
@@ -59,9 +63,9 @@ class SimpleExpansionPanel extends React.Component {
       oil: '',
       taxi: '',
       car: '',
-      expressway:'',
       wash_pard:'',
       tax:'',
+      bugetPlace: '',
       food_morning:'',
       food_afternoon:'',
       food_diner:'',
@@ -73,7 +77,9 @@ class SimpleExpansionPanel extends React.Component {
       type:'',
       place:'',
       target:'',
-      relation:''
+      relation:'',
+      helperText: '',
+      country:''
 
   };
   handleChange = panel => (event, expanded) => {
@@ -83,22 +89,87 @@ class SimpleExpansionPanel extends React.Component {
   };
   componentDidMount(){
    const user = sessionStorage.getItem("user")
-   const datauser = JSON.parse(user)
-   this.setState({user:datauser})
    const dataMaster = sessionStorage.getItem("setting_S")
    const dataMasterS = JSON.parse(dataMaster)
+   const datauser = JSON.parse(user)
+   console.log(dataMasterS)
+   if(datauser.level==="4"){
+     this.setState({
+       dataSetting_expressway:dataMasterS.expressway_4,
+       dataSetting_income_th:dataMasterS.income_th_4,
+       dataSetting_income_A:dataMasterS.income_A_4,
+       dataSetting_income_B:dataMaster.income_B_4,
+       dataSetting_income_C:dataMasterS.income_C_4,
+       dataSetting_place_TH:dataMasterS.place_TH_4,
+       dataSetting_place_A:dataMasterS.place_A_4,
+       dataSetting_place_B:dataMasterS.place_B_4,
+       dataSetting_place_C:dataMasterS.place_C_4,
+       dataSetting_costume:dataMasterS.costume_4,
+       dataSetting_oil:dataMasterS.oil_4,
+       dataSetting_taxi:dataMasterS.taxi_4,
+       dataSetting_car:dataMasterS.car_4,
+       dataSetting_wash_pard:dataMasterS.wash_pard_4
+      })
    }
+   }
+   
   onhandleChange = name => event => {
-    event.target.value>100?
-    this.setState({test:1000}):
     this.setState({ [name]: event.target.value });
   };
-  _onChangeExpress = event => {
-    console.log(this.state)
-    console.log("123",this.state.datasetting_expressway)
-    event.target.value>this.state.dataSetting_expressway?
-    this.setState({expressway:this.state.dataSetting_expressway}):
-    this.setState({expressway: event.target.value });
+  onhandleChangeExpressway = event => {
+    this.setState({ expressway: event.target.value })
+    if(event.target.value>this.state.dataSetting_expressway){
+      this.setState({ 
+        expressway: this.state.dataSetting_expressway })
+    }
+  };
+  onhandleChangeOil = event => {
+    this.setState({ oil: event.target.value })
+    if(event.target.value>this.state.dataSetting_oil){
+      this.setState({ 
+        oil: this.state.dataSetting_oil })
+    }
+  };
+  onhandleChangePark= event => {
+    this.setState({ wash_pard: event.target.value })
+    if(event.target.value>this.state.dataSetting_wash_pard){
+      this.setState({ 
+        wash_pard: this.state.dataSetting_oil })
+    }
+  };
+  onhandleChangeTaxi = event => {
+    this.setState({ taxi: event.target.value })
+    if(event.target.value>this.state.dataSetting_taxi){
+      this.setState({ 
+        taxi: this.state.dataSetting_taxi })
+    }
+  };
+  onhandleChangeBugetPlace = event => {
+    this.setState({ bugetPlace: event.target.value })
+    if(this.state.country==="a"){
+      if(event.target.value>this.state.dataSetting_place_A){
+        this.setState({ 
+          bugetPlace: this.state.dataSetting_place_A })
+      }
+    } else if(this.state.country==="b"){
+      if(event.target.value>this.state.dataSetting_place_B){
+        this.setState({ 
+          bugetPlace: this.state.dataSetting_place_B })
+      }
+    } else if(this.state.country==="c"){
+      if(event.target.value>this.state.dataSetting_place_C){
+        this.setState({ 
+          bugetPlace: this.state.dataSetting_place_C })
+      }
+    }else if(this.state.country==="th"){
+      if(event.target.value>this.state.dataSetting_place_TH){
+        this.setState({ 
+          bugetPlace: this.state.dataSetting_place_TH })
+      }
+    }
+  };
+  handleChangeSelect = event => {
+    this.setState({ country: event.target.value,bugetPlace:'' });
   };
   render(){
   const { classes } = this.props;
@@ -121,7 +192,7 @@ class SimpleExpansionPanel extends React.Component {
               id="standard-name"
               label="ค่าทางด่วน"
               className={classes.textField}
-              onChange={this.onhandleChange('expressway')}
+              onChange={this.onhandleChangeExpressway}
               value={this.state.expressway}
               type="number"
               margin="normal"
@@ -130,7 +201,7 @@ class SimpleExpansionPanel extends React.Component {
               id="standard-uncontrolled"
               label="ค่าจอด รถล้างรถ"
               className={classes.textField}
-              onChange={this.onhandleChange('wash_pard')}
+              onChange={this.onhandleChangePark}
               value={this.state.wash_pard}
               margin="normal"
             />
@@ -138,7 +209,7 @@ class SimpleExpansionPanel extends React.Component {
               id="standard-uncontrolled"
               label="ค่าแท็กซี่"
               className={classes.textField}
-              onChange={this.onhandleChange('texi')}
+              onChange={this.onhandleChangeTaxi}
               value={this.state.taxi}
               margin="normal"
             />
@@ -147,8 +218,8 @@ class SimpleExpansionPanel extends React.Component {
             <TextField
               id="standard-name"
               label="ค่าภาษีสนามบิน"
-              onChange={this.onhandleChange('wash_pard')}
-              value={this.state.wash_pard}
+              onChange={this.onhandleChange('tax')}
+              value={this.state.tax}
               className={classes.textField}
               margin="normal"
             />
@@ -157,14 +228,14 @@ class SimpleExpansionPanel extends React.Component {
               id="standard-uncontrolled"
               label="ค่าตั๋วสนามบิน"
               className={classes.textField}
-              onChange={this.onhandleChange('tax')}
-              value={this.state.tax}
+              onChange={this.onhandleChange('FlightTicket')}
+              value={this.state.FlightTicket}
               margin="normal"
             />
               <TextField
               id="standard-uncontrolled"
               label="ค่าน้ำมัน"
-              onChange={this.onhandleChange('oil')}
+              onChange={this.onhandleChangeOil}
               value={this.state.oil}
               className={classes.textField}
               margin="normal"
@@ -289,6 +360,51 @@ class SimpleExpansionPanel extends React.Component {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+
+      <ExpansionPanel     
+          square
+          expanded={expanded === 'panel4'}
+          onChange={this.handleChange('panel4')}
+        >>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>ค่าที่พัก</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+          <form className={classes.container} noValidate autoComplete="off">
+                  <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="age-simple">ประเทศที่พัก</InputLabel>
+                    <Select
+                      value={this.state.country}
+                      onChange={this.handleChangeSelect}
+                      style={{width:200,marginTop: 30}}
+                      inputProps={{
+                        name: 'age',
+                        id: 'age-simple',
+                      }}
+                    >
+                      <MenuItem value="">
+                        <em>ประเทศ</em>
+                      </MenuItem>
+                      <MenuItem value={"a"}>United Kingdom</MenuItem>
+                      <MenuItem value={"b"}>Vatican City State</MenuItem>
+                      <MenuItem value={"th"}>Thailand</MenuItem>Myanmar
+                      <MenuItem value={"c"}>Myanmar</MenuItem>Myanmar
+                    </Select>
+                  </FormControl>
+                  <TextField
+                  id="standard-uncontrolled"
+                  label="ค่าที่พัก"
+                  className={classes.textField}
+                  onChange={this.onhandleChangeBugetPlace}
+                  value={this.state.bugetPlace}
+                  margin="normal"
+                />            
+         </form>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+
       <ExpansionPanel     
           square
           expanded={expanded === 'panel4'}
@@ -315,6 +431,14 @@ class SimpleExpansionPanel extends React.Component {
           className={classes.textField}
           onChange={this.onhandleChange('cd')}
           value={this.state.cd}
+          margin="normal"
+        />
+           <TextField
+          id="standard-uncontrolled"
+          label="ค่าแต่งกาย"
+          className={classes.textField}
+          onChange={this.onhandleChange("costume")}
+          value={this.state.costume}
           margin="normal"
         />
          </form>

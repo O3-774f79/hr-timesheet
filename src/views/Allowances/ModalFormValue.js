@@ -277,7 +277,7 @@ class Modalform3 extends React.Component {
                           className={classes.textField}
                         />
                       </GridItem>
-                      <GridItem xs={12} sm={12} md={2}>
+                      {/* <GridItem xs={12} sm={12} md={2}>
                         <h7 className={classes.labelFlow}> ค่าที่พัก</h7>
                       </GridItem>
                       <GridItem xs={12} sm={12} md={2}>
@@ -289,7 +289,7 @@ class Modalform3 extends React.Component {
                           defaultValue=""
                           className={classes.textField}
                         />
-                      </GridItem>
+                      </GridItem> */}
                     </GridContainer>
                   </CardBody>
                 </GridItem>

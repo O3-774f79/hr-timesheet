@@ -16,11 +16,13 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import { Steps, Icon } from "antd";
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Modalform from "./Modalform";
 
+const Step = Steps.Step;
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -75,7 +77,8 @@ class FormReq extends React.Component {
     CostOther: "",
     County: "",
     Province: "นครปฐม",
-    MoneyTran: "35"
+    MoneyTran: "35",
+    dataArray:[],
   };
 
   showModal = () => {
@@ -99,6 +102,13 @@ class FormReq extends React.Component {
   };
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
+  };
+  _onhandleClick =  () => {
+    this.setState({
+      visible: false
+    });
+    const {dataArray} = this.state
+    sessionStorage.setItem("TravelReq",JSON.stringify(dataArray))
   };
   render() {
     const { classes } = this.props;
@@ -418,7 +428,7 @@ class FormReq extends React.Component {
                 </GridContainer>
               </CardBody>
               <CardFooter className={classes.positionButton}>
-                <Button color="success" onClick={this.showModal}>
+                <Button color="success" onClick={this.showModal} style={{fontSize:16}}>
                   ตรวจสอบรายการอนุมัติ
                 </Button>
                 <Modal
@@ -429,7 +439,405 @@ class FormReq extends React.Component {
                   onCancel={this.handleCancel}
                   footer={null}
                 >
-                  <Modalform dataTravelReq={this.state} />
+                     <GridContainer>
+          <GridItem xs={12} sm={12} md={12}>
+            <Card>
+              <CardHeader color="info">
+                <h3 className={classes.cardTitleWhite}>การขอเดินทาง</h3>
+                {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
+              </CardHeader>
+              <CardBody>
+                <Steps>
+                  <Steps>
+                    <Step
+                      status="finish"
+                      title="Emp"
+                      icon={<Icon type="user" />}
+                    />
+                    <Step
+                      status="finish"
+                      title="Manager"
+                      icon={<Icon type="solution" />}
+                    />
+                    <Step
+                      status="wait"
+                      title="Done"
+                      icon={<Icon type="smile-o" />}
+                    />
+                  </Steps>
+                </Steps>
+              </CardBody>
+
+              <CardBody>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <AppBar className={classes.headerAppBar} position="static">
+                      <Toolbar variant="dense">
+                        <Typography variant="h6" color="inherit">
+                          <PersonPinIcon /> พนักงาน
+                        </Typography>
+                      </Toolbar>
+                    </AppBar>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>รหัสพนักงาน</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="รหัสพนักงาน"
+                            className={classes.textField}
+                            type="email"
+                            fullWidth
+                            value={this.state.EmpID}
+                            onChange={this.handleChange("EmpID")}
+                            name="email"
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ชื่อ :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ชื่อ"
+                            className={classes.textField}
+                            value={this.state.EmpFName}
+                            onChange={this.handleChange("EmpFName")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ชื่อสกุล :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ชื่อสกุล"
+                            className={classes.textField}
+                            value={this.state.EmpLName}
+                            onChange={this.handleChange("EmpLName")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ฝ่าย :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ฝ่าย"
+                            className={classes.textField}
+                            value={this.state.EmpGroup}
+                            onChange={this.handleChange("EmpGroup")}
+                            type="email"
+                            fullWidth
+                            name="email"
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>แผนก :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="แผนก"
+                            className={classes.textField}
+                            value={this.state.EmpDepartment}
+                            onChange={this.handleChange("EmpDepartment")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ระดับ :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ระดับ"
+                            className={classes.textField}
+                            value={this.state.EmpLevel}
+                            onChange={this.handleChange("EmpLevel")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <AppBar className={classes.headerAppBar} position="static">
+                      <Toolbar variant="dense">
+                        <Typography variant="h6" color="inherit">
+                          <LibraryBooks /> ข้อมูลการเดินทาง
+                        </Typography>
+                      </Toolbar>
+                    </AppBar>
+                    <CardBody>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={3}>
+                          <h7 className={classes.label}>
+                            จุดประสงการเดินทาง :
+                          </h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={5}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="จุดประสงการเดินทาง"
+                            className={classes.textField}
+                            onChange={this.handleChange("TravelTarget")}
+                            type="email"
+                            fullWidth
+                            value={this.state.TravelTarget}
+                            name="email"
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ประเภทงาน :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ประเภทงาน"
+                            className={classes.textField}
+                            value={this.state.WorkType}
+                            onChange={this.handleChange("WorkType")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ตั้งแต่วันที่ :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label="Birthday"
+                            type="date"
+                            fullWidth
+                            disabled
+                            value={this.state.DateStart}
+                            onChange={this.handleChange("DateStart")}
+                            defaultValue=""
+                            className={classes.textField}
+                            InputLabelProps={{
+                              shrink: true
+                            }}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ถึงวันที่ :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="date"
+                            label="Birthday"
+                            type="date"
+                            disabled
+                            value={this.state.DateFinish}
+                            onChange={this.handleChange("DateFinish")}
+                            fullWidth
+                            defaultValue=""
+                            className={classes.textField}
+                            InputLabelProps={{
+                              shrink: true
+                            }}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>เวลาเริ่มต้น :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="time"
+                            label="เวลาเริ่มต้น"
+                            type="time"
+                            disabled
+                            // defaultValue="07:30"
+                            value={this.state.TimeStart}
+                            onChange={this.handleChange("TimeStart")}
+                            fullWidth
+                            className={classes.textField}
+                            InputLabelProps={{
+                              shrink: true
+                            }}
+                            inputProps={{
+                              step: 600 // 5 min
+                            }}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>เวลาสิ้นสุด :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="time"
+                            label="เวลาสิ้นสุด"
+                            type="time"
+                            disabled
+                            // defaultValue="07:30"
+                            value={this.state.TimeFinish}
+                            onChange={this.handleChange("TimeFinish")}
+                            fullWidth
+                            className={classes.textField}
+                            InputLabelProps={{
+                              shrink: true
+                            }}
+                            inputProps={{
+                              step: 600 // 5 min
+                            }}
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ศูนย์ต้นทุน :</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ศูนย์ต้นทุน"
+                            className={classes.textField}
+                            value={this.state.CostCenter}
+                            onChange={this.handleChange("CostCenter")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>ศูนย์ต้นทุนอื่น</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="ศูนย์ต้นทุนอื่น"
+                            className={classes.textField}
+                            value={this.state.CostOther}
+                            onChange={this.handleChange("CostOther")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>เดินทางไปประเทศ</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="เดินทางไปประเทศ"
+                            className={classes.textField}
+                            value={this.state.County}
+                            onChange={this.handleChange("County")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>จังหวัด</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="จังหวัด"
+                            className={classes.textField}
+                            value={this.state.Province}
+                            onChange={this.handleChange("Province")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                      </GridContainer>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <h7 className={classes.label}>อัตราแลกเงิน</h7>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="outlined-email-input"
+                            label="อัตราแลกเงิน"
+                            className={classes.textField}
+                            value={this.state.MoneyTran}
+                            onChange={this.handleChange("MoneyTran")}
+                            type="email"
+                            name="email"
+                            fullWidth
+                            autoComplete="email"
+                            margin="normal"
+                            disabled
+                          />
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </GridItem>
+                </GridContainer>
+              </CardBody>
+              <CardFooter className={classes.positionButton}>
+                <Button onClick={this._onhandleClick} color="success" style={{fontSize:16}}>
+                  ส่งอนุมัติ
+                </Button>
+              </CardFooter>
+            </Card>
+          </GridItem>
+        </GridContainer>
                 </Modal>
               </CardFooter>
             </Card>

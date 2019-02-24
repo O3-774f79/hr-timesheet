@@ -55,16 +55,10 @@ function FormReq(props) {
           <Card>
             <CardHeader color="info">
               <h3 className={classes.cardTitleWhite}>ข้อมูลการเดินทาง</h3>
-              {/* <p className={classes.cardCategoryWhite}>Complete your profile</p> */}
             </CardHeader>
             <CardBody>
                 <DataTable />
             </CardBody>
-            {/* <CardFooter>
-                <div className={classes.positionButton}>
-              <Button className={classes.buttonSubmit}>ตกลง</Button>
-              </div>
-            </CardFooter> */}
           </Card>
         </GridItem>
       </GridContainer>

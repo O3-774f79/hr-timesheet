@@ -159,7 +159,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -175,7 +175,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -191,7 +191,7 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                       </GridContainer>
@@ -215,7 +215,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -231,7 +231,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -247,7 +247,7 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                       </GridContainer>
@@ -272,7 +272,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -286,7 +286,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -300,7 +300,7 @@ class FormReq extends React.Component {
                             type="text"
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                       </GridContainer>
@@ -324,7 +324,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -337,8 +337,7 @@ class FormReq extends React.Component {
                             type="number"
                             fullWidth
                             defaultValue=""
-                            className={classes.textField}
-                            disabled
+                            className={classes.textField}                          
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -351,8 +350,7 @@ class FormReq extends React.Component {
                             fullWidth
                             type="text"
                             defaultValue=""
-                            className={classes.textField}
-                            disabled
+                            className={classes.textField}          
                           />
                         </GridItem>
                       </GridContainer>
@@ -374,7 +372,7 @@ class FormReq extends React.Component {
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                       </GridContainer>
@@ -394,6 +392,7 @@ class FormReq extends React.Component {
                   color="success"
                   className={classes.buttonSubmit}
                   onClick={this.showModal}
+                  style={{fontSize:16}}
                 >
                   ตรวจสอบรายการอนุมัติ
                 </Button>
