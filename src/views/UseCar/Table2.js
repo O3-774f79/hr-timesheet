@@ -124,30 +124,25 @@ export default class Table2 extends React.Component {
       title: 'เดินทางจาก',
       dataIndex: 'start',
       editable: true,
-      render: ()=> (<Input />)
     }, {
       title: 'ถึง',
       dataIndex: 'finish',
       editable: true,
-      render: ()=> (<Input />)
     }, 
     {
       title: 'เลขที่มิเตอระยะทาง: เริ่มต้น',
       editable: true,
       dataIndex: 'miStart',
-      render: ()=> (<Input />)
     }, 
     {
       title: 'เลขที่มิเตอระยะทาง: สิ้นสุด',
       editable: true,
       dataIndex: 'miFinish',
-      render: ()=> (<Input />)
       }, 
     {
       title: "ระยะทางรวม",
       editable: true,
       dataIndex: 'summary',
-      render: ()=> (<Input />)
     },
     // {
     //   title: '',
@@ -236,7 +231,7 @@ export default class Table2 extends React.Component {
           components={components}
           rowClassName={() => 'editable-row'}
           bordered
-          dataSource={dataSource}
+          dataSource={this.props.dataSource}
           columns={columns}
           footer={null}
         />

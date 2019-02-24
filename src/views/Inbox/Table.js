@@ -20,7 +20,8 @@ const EditableFormRow = Form.create()(EditableRow);
 
 class EditableCell extends React.Component {
   state = {
-    editing: false
+    editing: false,
+    dataSource: []
   };
 
   componentDidMount() {
@@ -61,7 +62,6 @@ class EditableCell extends React.Component {
       handleSave({ ...record, ...values });
     });
   };
-
   render() {
     const { editing } = this.state;
     const {
@@ -222,7 +222,11 @@ export default class EditableTable extends React.Component {
     });
     this.setState({ dataSource: newData });
   };
-
+  componentDidMount(){
+    const dataMaster = sessionStorage.getItem("Approve")
+    const dataSource = JSON.parse(dataMaster)
+    this.setState({dataSource:dataSource})
+  }
   render() {
     const { dataSource } = this.state;
     const components = {
@@ -317,7 +321,7 @@ export default class EditableTable extends React.Component {
           components={components}
           rowClassName={() => "editable-row"}
           bordered
-          dataSource={dataSource}
+          dataSource={this.state.dataSource}
           columns={columns}
         />
       </div>

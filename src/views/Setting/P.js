@@ -105,7 +105,7 @@ class P extends Component {
     this.setState({
       visible: true,
     });
-    localStorage.setItem("setting_P", JSON.stringify(this.state))
+    sessionStorage.setItem("setting_P", JSON.stringify(this.state))
   }
   handleOk = (e) => {
     console.log(e);

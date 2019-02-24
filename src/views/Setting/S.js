@@ -107,7 +107,7 @@ class S extends Component {
     this.setState({
       visible: true,
     });
-    localStorage.setItem("setting_S", JSON.stringify(this.state))
+    sessionStorage.setItem("setting_S", JSON.stringify(this.state))
   }
   handleOk = (e) => {
     console.log(e);

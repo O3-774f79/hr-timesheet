@@ -301,7 +301,9 @@ class Modalform3 extends React.Component {
                     <GridContainer>
                     <GridItem xs={12} sm={12} md={1} />
                       <GridItem xs={12} sm={12} md={11}>
+
                       <FoodValue /> 
+                      
                       </GridItem>
                     </GridContainer>
                   </CardBody>
@@ -309,11 +311,11 @@ class Modalform3 extends React.Component {
               </GridContainer>
            
             </CardBody>
-            <CardFooter className={classes.positionButton}>
+            {/* <CardFooter className={classes.positionButton}>
               <Button colo="success" className={classes.buttonSubmit}>
                 ตกลง
               </Button>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </GridItem>
       </GridContainer>

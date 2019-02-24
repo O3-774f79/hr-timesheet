@@ -18,7 +18,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import DataTable from "./Table";
-
+import ModalFormValue from './ModalFormValue'
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import Modalform2 from "./Modalform2";
 
@@ -302,12 +302,12 @@ class FormReq extends React.Component {
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
                     <CardBody>
-                      <DataTable />
+                      <ModalFormValue />
                     </CardBody>
                   </GridItem>
                 </GridContainer>
               </CardBody>
-              <CardFooter className={classes.positionButton}>
+              {/* <CardFooter className={classes.positionButton}>
                 <Button
                   color="success"
                   className={classes.buttonSubmit}
@@ -323,9 +323,9 @@ class FormReq extends React.Component {
                   onCancel={this.handleCancel}
                   footer={null}
                 >
-                  <Modalform2 dataTravelReq={this.state} />
+                  <Modalform2  dataTravelReq={this.state}/>
                 </Modal>
-              </CardFooter>
+              </CardFooter> */}
             </Card>
           </GridItem>
         </GridContainer>

@@ -80,7 +80,6 @@ class K extends Component {
     car_2: 1000,
     expressway_2: 1000,
     wash_pard_2: 2000,
-
     income_th_1: 400,
     income_A_1: 100,
     income_B_1: 90,
@@ -95,19 +94,18 @@ class K extends Component {
     car_1: 1000,
     expressway_1: 1000,
     wash_pard_1: 2000,
-
     multiline: "Controlled",
     currency: "EUR"
   };
 
   handleChange = name => event => {
-    this.setState({ [name]: parseInt(event.target.value) });
+    this.setState({[name]: parseInt(event.target.value) });
   };
   handleSubmit = ()=>{
     this.setState({
       visible: true,
     });
-    localStorage.setItem("setting_K", JSON.stringify(this.state))
+    sessionStorage.setItem("setting_K", JSON.stringify(this.state))
   }
   handleOk = (e) => {
     console.log(e);

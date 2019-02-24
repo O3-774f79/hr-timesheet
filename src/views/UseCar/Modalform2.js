@@ -221,7 +221,7 @@ const { classes,dataTravelReq } = this.props;
               </GridContainer>
             </CardBody>
             <CardBody>
-              <Table2 />
+              <Table2 dataSource={this.props.dataSource}/>
             </CardBody>
             <CardFooter className={classes.positionButton}>
               <Button color="success" className={classes.buttonSubmit}>

@@ -5,8 +5,6 @@ import 'antd/dist/antd.css';
 import {
   Table, Input, Button, Popconfirm, Form,Modal
 } from 'antd';
-import data from './data'
-import ModalFormValue from './ModalFormValue'
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
@@ -120,35 +118,29 @@ export default class EditableTable extends React.Component {
       title: 'วันที่เดินทาง',
       dataIndex: 'startDate',
       editable: true,
-      render: ()=> (<Input />)
     }, {
       title: 'เดินทางจาก',
       dataIndex: 'start',
       editable: true,
-      render: ()=> (<Input />)
     }, {
       title: 'ถึง',
       dataIndex: 'finish',
       editable: true,
-      render: ()=> (<Input />)
     }, 
     {
       title: 'เลขที่มิเตอระยะทาง: เริ่มต้น',
       editable: true,
       dataIndex: 'miStart',
-      render: ()=> (<Input />)
     }, 
     {
       title: 'เลขที่มิเตอระยะทาง: สิ้นสุด',
       editable: true,
       dataIndex: 'miFinish',
-      render: ()=> (<Input />)
       }, 
     {
       title: "ระยะทางรวม",
       editable: true,
       dataIndex: 'summary',
-      render: ()=> (<Input />)
     },
     {
       title: '',
@@ -164,29 +156,17 @@ export default class EditableTable extends React.Component {
     }];
 
     this.state = {
-      dataSource: [],
+      dataSource: [{ 
+        visible: false,
+        startDate:this.props.startDate,
+        start: '',
+        finish: '',
+        miStart:'',
+        miFinish:'',
+        summary:''}],
       count: 2,
     };
   }
-  showModal = () => {
-    this.setState({
-      visible: true
-    });
-  };
-
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      visible: false
-    });
-  };
-
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false
-    });
-  };
   handleDelete = (key) => {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
@@ -219,7 +199,6 @@ export default class EditableTable extends React.Component {
     });
     this.setState({ dataSource: newData });
   }
-
   render() {
     const { dataSource } = this.state;
     const components = {
@@ -245,30 +224,13 @@ export default class EditableTable extends React.Component {
     });
     return (
       <div>
-        <Button 
-        // onClick={this.handleAdd}
-        onClick={this.showModal} 
-        type="primary" 
-        style={{ marginBottom: 16 }}>
-          Add a row
-        </Button>
         <Table
           components={components}
           rowClassName={() => 'editable-row'}
           bordered
-          dataSource={dataSource}
+          dataSource={this.props.dataSource}
           columns={columns}
-        />
-          <Modal
-          style={{ marginLeft: "15%", marginTop: "10" }}
-          width="75%"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-          footer={null}
-        >
-          <ModalFormValue />{" "}
-        </Modal>
+        />      
       </div>
     );
   }
