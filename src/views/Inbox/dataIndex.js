@@ -1,7 +1,7 @@
 import React from "react";
 //@antD component
 import "antd/dist/antd.css";
-import { Modal} from "antd";
+import { Table, Input, Popconfirm, Form, Modal, Steps, Icon } from "antd";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -17,15 +17,13 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import DataTable from "./Table";
+import DataTable from "../Allowances/Table2";
 
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import Modalform3 from "./Modalform3";
+// import Modalform3 from "./ModalFormValue";
 import { Divider } from "@material-ui/core";
-import { Select } from 'antd';
 
-const Option = Select.Option;
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -45,7 +43,7 @@ const styles = {
   },
   label: {
     float: "right",
-    marginTop: 28
+    marginTop: 18
   },
   labelFlow: {
     float: "right",
@@ -92,7 +90,6 @@ class FormReq extends React.Component {
     support: '10,000',
     food: '10,000',
     allow: '10,000'
-
   };
 
   showModal = () => {
@@ -117,13 +114,11 @@ class FormReq extends React.Component {
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
-  onSelectChange = (value)=>{
-    if(value===1){
-      this.setState({countryText:"จังหวัด"})}
-    else { 
-      this.setState({countryText:"ประเทศ"})}
-    this.setState({country:value})
-  }
+  handleSubmit = ()=> {
+    this.setState({
+      visible: false
+    });
+  };
   render() {
     const { classes } = this.props;
     return (
@@ -161,7 +156,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="รหัสพนักงาน"
                             type="text"
-                            onChange={this.handleChange("EmpID")}
+                            // onChange={this.handleChange("EmpID")}
                             value={this.state.EmpID}
                             fullWidth
                             defaultValue=""
@@ -177,7 +172,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ชื่อ"
                             type="text"
-                            onChange={this.handleChange("EmpFName")}
+                            // onChange={this.handleChange("EmpFName")}
                             value={this.state.EmpFName}
                             fullWidth
                             defaultValue=""
@@ -191,7 +186,7 @@ class FormReq extends React.Component {
                         <GridItem xs={12} sm={12} md={3}>
                           <TextField
                             id="date"
-                            onChange={this.handleChange("EmpLName")}
+                            // onChange={this.handleChange("EmpLName")}
                             label="ชื่อสกุล"
                             value={this.state.EmpLName}
                             fullWidth
@@ -217,7 +212,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ฝ่าย"
                             value={this.state.EmpGroup}
-                            onChange={this.handleChange("EmpGroup")}
+                            // onChange={this.handleChange("EmpGroup")}
                             type="text"
                             fullWidth
                             defaultValue=""
@@ -233,7 +228,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="แผนก"
                             type="text"
-                            onChange={this.handleChange("EmpDepartment")}
+                            // onChange={this.handleChange("EmpDepartment")}
                             value={this.state.EmpDepartment}
                             fullWidth
                             defaultValue=""
@@ -249,7 +244,7 @@ class FormReq extends React.Component {
                             id="date"
                             label="ระดับ"
                             fullWidth
-                            onChange={this.handleChange("EmpLevel")}
+                            // onChange={this.handleChange("EmpLevel")}
                             value={this.state.EmpLevel}
                             type="text"
                             defaultValue=""
@@ -402,7 +397,14 @@ class FormReq extends React.Component {
                 </GridContainer>
               </CardBody>
               <CardFooter className={classes.positionButton}>
-                  <Modalform3 dataTravelReq={this.state}/>
+                <Button
+                  // color="success"
+                  className={classes.buttonSubmit}
+                  style={{fontSize:16}}
+                  onClick={this.handleSubmit}
+                >
+                  อนุมัติ
+                </Button>
               </CardFooter>
             </Card>
           </GridItem>

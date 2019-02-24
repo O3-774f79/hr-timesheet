@@ -79,8 +79,8 @@ function NestedTable() {
       platform: 'iOS',
       version: '10.3.4.5654',
       upgradeNum: 500,
-      creator: 'Jack',
-      createdAt: '2014-12-24 23:12:00',
+      creator: 'Jacka',
+      createdAt: '2014-12-24 23:12:00a',
     });
   }
 

@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
-import { Table, Input, Button, Popconfirm, Form } from "antd";
+import { Table, Input, Button, Popconfirm, Form,Modal } from "antd";
 
 import Delete from "@material-ui/icons/Delete";
 import Description from "@material-ui/icons/Description";
 import Done from "@material-ui/icons/Done";
+import Modalform3 from '../Allowances/Modalform3'
+import Dataindex from './dataIndex'
 
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
@@ -159,7 +161,7 @@ export default class EditableTable extends React.Component {
           <Button style={{ backgroundColor: "rgb(51, 204, 51)" }} onClick={() => this.handleDelete(record.key)}>
             <Done />
           </Button>,
-          <Button style={{ backgroundColor: "rgb(255, 153, 0)" }} onClick={() => this.handleDelete(record.key)}>
+          <Button style={{ backgroundColor: "rgb(255, 153, 0)" }} onClick={() => this.showModal(record.key)}>
             <Description />
           </Button>,
           <Button style={{ backgroundColor: "rgb(204, 0, 0)" }} onClick={() => this.handleDelete(record.key)}>
@@ -171,25 +173,34 @@ export default class EditableTable extends React.Component {
 
     this.state = {
       dataSource: [
+        // {
+        //   key: "0",
+        //   id: "BRT-6200001",
+        //   topic: "เบิกเบี้ยเลี้ยงภายในประเทศและต่างประเทศ",
+        //   startdate: "15/02/2562",
+        //   enddate: "",
+        //   requester: "นาย อนันต์ชัย พหุพงศ์ทรัพย์"
+        // },
+        // {
+        //   key: "1",
+        //   id: "BRT-6200002",
+        //   topic: "เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท",
+        //   startdate: "15/02/2562",
+        //   enddate: "",
+        //   requester: "นาย อนันต์ชัย พหุพงศ์ทรัพย์"
+        // },
         {
           key: "0",
-          id: "BRT-6200001",
-          topic: "เบิกเบี้ยเลี้ยงภายในประเทศและต่างประเทศ",
-          startdate: "15/02/2562",
-          enddate: "",
-          requester: "นาย อนันต์ชัย พหุพงศ์ทรัพย์"
-        },
-        {
-          key: "1",
-          id: "BRT-6200002",
-          topic: "เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท",
-          startdate: "15/02/2562",
+          id: "BRT-6200125",
+          topic: "เบิกเบี้ยเลี้ยงภายในและต่างประเทศ",
+          startdate: "18/02/2562",
           enddate: "",
           requester: "นาย อนันต์ชัย พหุพงศ์ทรัพย์"
         }
       ],
       count: 2,
-      selectedRowKeys: []
+      selectedRowKeys: [],
+      visible: false
     };
   }
 
@@ -197,6 +208,9 @@ export default class EditableTable extends React.Component {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
   };
+  open = ()=>{
+    
+  }
   handleSave = row => {
     const newData = [...this.state.dataSource];
     const index = newData.findIndex(item => row.key === item.key);
@@ -208,9 +222,29 @@ export default class EditableTable extends React.Component {
     this.setState({ dataSource: newData });
   };
   componentDidMount(){
-    const dataMaster = sessionStorage.getItem("Approve")
-    const dataSource = JSON.parse(dataMaster)
-    this.setState({dataSource:dataSource})
+    // const dataMaster = sessionStorage.getItem("Approve")
+    // const dataSource = JSON.parse(dataMaster)
+    // this.setState({dataSource:dataSource})
+  }
+  
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
+
+  handleOk = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
+
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
   }
   render() {
     const { dataSource } = this.state;
@@ -309,6 +343,21 @@ export default class EditableTable extends React.Component {
           dataSource={this.state.dataSource}
           columns={columns}
         />
+
+
+        <Modal
+          title=" "
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          style={{ marginLeft: "15%", marginTop: "10" }}
+          width="75%"
+          footer={null}
+        >
+          <Dataindex />
+        </Modal>
+     
+     
       </div>
     );
   }

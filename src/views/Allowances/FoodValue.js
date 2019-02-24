@@ -31,11 +31,10 @@ const styles = theme => ({
 
 class SimpleExpansionPanel extends React.Component {
   state = {
+    visible: false ,
     expanded: 'panel1',
     expressway:'',
     travelSum: 0,
-    user:{},
-    data: {},
     dataSetting_income_th: '',
     dataSetting_income_A: '',
     dataSetting_income_B: '',
@@ -89,6 +88,9 @@ class SimpleExpansionPanel extends React.Component {
       expanded: expanded ? panel : false,
     });
   };
+  onHandleClick = ()=> {
+    
+  }
   componentDidMount(){
    const user = sessionStorage.getItem("user")
    const dataMaster = sessionStorage.getItem("setting_S")
@@ -575,7 +577,7 @@ class SimpleExpansionPanel extends React.Component {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <Button  className={classes.buttonSubmit} style={{align:"right",fontSize:16}}>ตกลง
+      <Button  onClick={this.onHandleClick} className={classes.buttonSubmit} style={{fontSize:16}}>ตกลง
        </Button>
     </div>
   );

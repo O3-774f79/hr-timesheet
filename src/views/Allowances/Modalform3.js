@@ -107,10 +107,31 @@ class FormReq extends React.Component {
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
+  handleSubmit = ()=> {
+    this.setState({
+      visible: false
+    });
+  };
   render() {
     const { classes,dataTravelReq } = this.props;
     return (
       <div>
+            <Button
+                  color="success"
+                  className={classes.buttonSubmit}
+                  onClick={this.showModal}
+                  style={{fontSize:16}}
+                >
+                  ตรวจสอบรายการอนุมัติ
+                </Button>
+                <Modal
+                  style={{ marginLeft: "15%", marginTop: "10" }}
+                  width="75%"
+                  visible={this.state.visible}
+                  onOk={this.handleOk}
+                  onCancel={this.handleCancel}
+                  footer={null}
+                >
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Card>
@@ -258,11 +279,12 @@ class FormReq extends React.Component {
                           <TextField
                             id="date"
                             label=""
-                            type="number"
+                            type="text"
+                            value={this.state.allow}
                             fullWidth
-                            defaultValue=""
+                            defaultValue="10,000"
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -272,11 +294,12 @@ class FormReq extends React.Component {
                           <TextField
                             id="date"
                             label=""
-                            type="number"
+                            type="text"
+                            value={this.state.place}
                             fullWidth
-                            defaultValue=""
+                            defaultValue="10,000"
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -288,9 +311,10 @@ class FormReq extends React.Component {
                             label=""
                             fullWidth
                             type="text"
-                            defaultValue=""
+                            value={this.state.car}
+                            defaultValue="10,000"
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                       </GridContainer>
@@ -310,11 +334,12 @@ class FormReq extends React.Component {
                           <TextField
                             id="date"
                             label=""
-                            type="number"
+                            type="text"
+                            value={this.state.food}
                             fullWidth
-                            defaultValue=""
+                            defaultValue="10,000"
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={1}>
@@ -324,11 +349,11 @@ class FormReq extends React.Component {
                           <TextField
                             id="date"
                             label=""
-                            type="number"
+                            type="text"
+                            value={this.state.support}
                             fullWidth
-                            defaultValue=""
-                            className={classes.textField}
-                            disabled
+                            defaultValue="10,000"
+                            className={classes.textField}                          
                           />
                         </GridItem>
                         <GridItem xs={12} sm={12} md={2}>
@@ -340,9 +365,9 @@ class FormReq extends React.Component {
                             label=""
                             fullWidth
                             type="text"
-                            defaultValue=""
-                            className={classes.textField}
-                            disabled
+                            value={this.state.outher}
+                            defaultValue="6,000"
+                            className={classes.textField}          
                           />
                         </GridItem>
                       </GridContainer>
@@ -360,11 +385,12 @@ class FormReq extends React.Component {
                           <TextField
                             id="date"
                             label=""
+                            value={"56,000"}
                             type="text"
                             fullWidth
                             defaultValue=""
                             className={classes.textField}
-                            disabled
+                            
                           />
                         </GridItem>
                       </GridContainer>
@@ -381,8 +407,10 @@ class FormReq extends React.Component {
               </CardBody>
               <CardFooter className={classes.positionButton}>
                 <Button
-                  color="success"
+                  // color="success"
                   className={classes.buttonSubmit}
+                  style={{fontSize:16}}
+                  onClick={this.handleSubmit}
                 >
                   ส่งอนุมัติ
                 </Button>
@@ -390,6 +418,7 @@ class FormReq extends React.Component {
             </Card>
           </GridItem>
         </GridContainer>
+        </Modal>
       </div>
     );
   }

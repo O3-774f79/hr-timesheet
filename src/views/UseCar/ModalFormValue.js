@@ -1,14 +1,14 @@
 import React from "react";
 //@antD component
 import "antd/dist/antd.css";
-import { Modal, Steps, Icon } from "antd";
+import { Modal, Steps, Icon,Button } from "antd";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+// import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
@@ -158,11 +158,11 @@ class Modalform3 extends React.Component {
   return (
     <div>
         <Button 
-        // onClick={this.handleAdd}
         onClick={this.showModal} 
+        type="primary"
         style={{ marginBottom: 16,backgroundColor: "#ffcc00", fontSize:14,color: "#000000"}}>
-          เพิ่มรายการ
-        </Button>
+        เพิ่มรายการ
+      </Button>
         <Modal
           style={{ marginLeft: "15%", marginTop: "10" }}
           width="75%"

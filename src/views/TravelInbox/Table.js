@@ -158,10 +158,19 @@ export default class EditableTable extends React.Component {
         },
         {
           key: "0",
-          id: "BRT-6200123",
+          id: "BRT-6200124",
           topic: "เบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท",
-          startdate: "18/03/2562",
-          enddate: "18/03/2562",
+          startdate: "20/01/2562",
+          enddate: "20/01/2562",
+          status: "รอการอนุมัติ",
+          cde: "D"
+        },
+        {
+          key: "0",
+          id: "BRT-6200125",
+          topic: "เบิกเบี้ยเลี้ยงภายในและต่างประเทศ",
+          startdate: "18/02/2562",
+          enddate: "18/02/2562",
           status: "รอการอนุมัติ",
           cde: "D"
         }
@@ -237,7 +246,7 @@ export default class EditableTable extends React.Component {
           components={components}
           rowClassName={() => "editable-row"}
           bordered
-          dataSource={DataTravelReq}
+          dataSource={this.state.dataSource}
           columns={columns}
         />
       </div>

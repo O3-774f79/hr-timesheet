@@ -66,23 +66,47 @@ const styles = {
 
 class Modalform3 extends React.Component {
   state={
-    country: 1,
-    countryText: "จังหวัด"
   }
     handleChange = name => event => {
       this.setState({ [name]: event.target.value });
     };
-    onSelectChange = (value)=>{
-      if(value===1){
-        this.setState({countryText:"จังหวัด"})}
-      else { 
-        this.setState({countryText:"ประเทศ"})}
-      this.setState({country:value})
-    }
+    showModal = () => {
+      this.setState({
+        visible: true
+      });
+    };
+  
+    handleOk = e => {
+      console.log(e);
+      this.setState({
+        visible: false
+      });
+    };
+  
+    handleCancel = e => {
+      console.log(e);
+      this.setState({
+        visible: false
+      });
+    };
   render(){
   const { classes } = this.props;
   return (
-    <div>
+    <div>        
+      <Button
+    onClick={this.showModal}
+    type="primary"
+    style={{ marginBottom: 16,backgroundColor: "#ffcc00", fontSize:14,color: "#000000"}}>
+    เพิ่มรายการ
+  </Button>
+  <Modal
+          style={{ marginLeft: "15%", marginTop: "10" }}
+          width="75%"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          footer={null}
+        >
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
@@ -209,6 +233,7 @@ class Modalform3 extends React.Component {
           </Card>
         </GridItem>
       </GridContainer>
+      </Modal>
     </div>
   );
 }

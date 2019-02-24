@@ -115,12 +115,13 @@ export default class EditableTable extends React.Component {
     super(props);
     this.state = {
       dataSource: [{
-        dateStart: "Screem",
-        dateFinish: "iOS",
-        timeStart:"10.3.4.5654",
-        timeFinish: "10.3.4.5654",
-        country: 500,
-        detail: "Jack",
+        dateStart: "10-10-2019",
+        dateFinish: "20-10-2019",
+        timeStart:"8:00",
+        timeFinish: "18:00",
+        total: "10",
+        country: "ลาว",
+        detail: "Contact",
       }],
       count: 2,
       visible: false ,
@@ -171,25 +172,6 @@ export default class EditableTable extends React.Component {
     ];
   }
 
-  showModal = () => {
-    this.setState({
-      visible: true
-    });
-  };
-
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      visible: false
-    });
-  };
-
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false
-    });
-  };
   handleDelete = key => {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
@@ -214,23 +196,23 @@ export default class EditableTable extends React.Component {
       { title: "เป็นเงิน/บาท", dataIndex: "sum",width: 5},
     ];
     const data = [{
-      list: "2014-12-24 23:12:00",
-      sum: "This is production name",
+      list: "ค่าเบี้ยเลี้ยง",
+      sum: "10,000",
     },{
-      list: "2014-12-24 23:12:00",
-      sum: "This is production name",
+      list: "ค่าที่พัก",
+      sum: "10,000",
     },{
-      list: "2014-12-24 23:12:00",
-      sum: "This is production name",
+      list:"ค่าเดินทางและพาหนะ",
+      sum: "10,000",
     },{
-      list: "2014-12-24 23:12:00",
-      sum: "This is production name",
+      list: "รวมค่าอาหาร",
+      sum: "10,000",
     },{
-      list: "2014-12-24 23:12:00",
-      sum: "This is production name",
+      list: "รวมค่ารับรอง",
+      sum: "10,000",
     },{
-      list: "2014-12-24 23:12:00",
-      sum: "This is production name",
+      list: "อื่นๆ",
+      sum: "6000",
     },]
     return <Table columns={columns} dataSource={data} pagination={false} size="middle"/>;
   };
@@ -270,14 +252,7 @@ export default class EditableTable extends React.Component {
     });
     return (
       <div>
-        <Button
-          // onClick={this.handleAdd}
-          onClick={this.showModal}
-          type="primary"
-          style={{ marginBottom: 16 }}
-        >
-          เพิ่มรายการ
-        </Button>
+        <ModalFormValue />
         <Table
           components={components}
           rowClassName={() => "editable-row"}
@@ -287,16 +262,7 @@ export default class EditableTable extends React.Component {
           footer={null}
           expandedRowRender={this.expandedRowRender}
         />
-        <Modal
-          style={{ marginLeft: "15%", marginTop: "10" }}
-          width="75%"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-          footer={null}
-        >
-          <ModalFormValue />{" "}
-        </Modal>
+
       </div>
     );
   }
