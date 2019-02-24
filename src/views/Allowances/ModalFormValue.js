@@ -89,6 +89,11 @@ class Modalform3 extends React.Component {
         visible: false
       });
     };
+    handler = ()=> {
+      this.setState({
+        visible: false
+      });
+  }
   render(){
   const { classes } = this.props;
   return (
@@ -221,7 +226,7 @@ class Modalform3 extends React.Component {
                     <GridItem xs={12} sm={12} md={1} />
                       <GridItem xs={12} sm={12} md={11}>
 
-                      <FoodValue /> 
+                      <FoodValue action={this.handler}/> 
                       
                       </GridItem>
                     </GridContainer>

@@ -81,16 +81,14 @@ class SimpleExpansionPanel extends React.Component {
       country:'',
       inregion: '',
       allowances: '',
-      exchangeDate:''
-  };
+      exchangeDate:'',
+      moneyTranfer: '',
+      province: ''  };
   handleChange = panel => (event, expanded) => {
     this.setState({
       expanded: expanded ? panel : false,
     });
   };
-  onHandleClick = ()=> {
-    
-  }
   componentDidMount(){
    const user = sessionStorage.getItem("user")
    const dataMaster = sessionStorage.getItem("setting_S")
@@ -246,8 +244,8 @@ class SimpleExpansionPanel extends React.Component {
                     id="standard-name"
                     label="จังหวัด"
                     className={classes.textField}
-                    onChange={this.onhandleChangeExpressway}
-                    value={this.state.expressway}
+                    onChange={this.onhandleChange('province')}
+                    value={this.state.province}
                     type="text"
                     margin="normal"
                   />:
@@ -275,7 +273,7 @@ class SimpleExpansionPanel extends React.Component {
                   id="standard-name"
                   label="อัตราแลกเงิน ณ วันที่"
                   className={classes.textField}
-                  onChange={this.handleChange('exchangeDate')}
+                  onChange={this.onhandleChange('exchangeDate')}
                   value={this.state.exchangeDate}
                   width={200}
                   type="date"
@@ -285,8 +283,8 @@ class SimpleExpansionPanel extends React.Component {
                   id="standard-name"
                   label="อัตราแลกเปลี่ยน/บาท"
                   className={classes.textField}
-                  onChange={this.onc}
-                  value={this.state.expressway}
+                  onChange={this.onhandleChange('moneyTranfer')}
+                  value={this.state.moneyTranfer}
                   type="text"
                   margin="normal"
                 />
@@ -577,8 +575,15 @@ class SimpleExpansionPanel extends React.Component {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <Button  onClick={this.onHandleClick} className={classes.buttonSubmit} style={{fontSize:16}}>ตกลง
+      <span style={{display:"flex",justifyContent:"center"}}>
+      <Button
+                  onClick={this.props.action}
+                  className={classes.buttonSubmit}
+                  style={{backgroundColor:"#33cc33",fontSize:16,height:'40px'}}
+                >
+                ตกลง
        </Button>
+       </span>
     </div>
   );
 }
