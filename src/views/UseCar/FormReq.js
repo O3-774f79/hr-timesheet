@@ -67,7 +67,9 @@ class FormReq extends React.Component {
     EmpDepartment: "Programming",
     EmpLevel: "ปฏิบัติการ",
     CarID: 'ฬงฬ999',
-    Carleange: '60'
+    Carleange: '60',
+    total: '',
+    Budget: ''
   };
 
   showModal = () => {
@@ -276,7 +278,8 @@ class FormReq extends React.Component {
                           id="date"
                           label="จำนวนระยะทางรวม"
                           type="text"
-                          disabled
+                          onChange={this.handleChange("total")}
+                          value={this.state.total}
                           fullWidth
                           className={classes.textField}
                         />
@@ -291,7 +294,8 @@ class FormReq extends React.Component {
                           id="date"
                           label="เงินช่วยเหลือค่าพาหนะ"
                           type="text"
-                          disabled
+                          onChange={this.handleChange("Budget")}
+                          value={this.state.Budget}
                           fullWidth
                           className={classes.textField}
                         />

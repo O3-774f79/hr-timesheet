@@ -85,6 +85,7 @@ class Modalform3 extends React.Component {
       { 
       topic: "การเบิกชดเชยการใช้รถส่วนตัวในกิจการบริษัท",
       EmpID: "12345",
+      id:"BRT-6200001",
       requester:"Ananchai",
       EmpFName: "Ananchai",
       EmpLName: "Phahupongsub",
@@ -95,8 +96,6 @@ class Modalform3 extends React.Component {
       EmpLevel: "ปฏิบัติการ",
       CarID: 'ฬงฬ999',
       Carleange: '60',
-      visible: false,
-      visible2: false,
       startDate:'',
       start: '',
       finish: '',
@@ -111,17 +110,23 @@ class Modalform3 extends React.Component {
   };
   onHandleClick= ()=>{
     this.setState({
-      visible: false
+      visible: false,
+      startDate:'',
+      start: '',
+      finish: '',
+      miStart:'',
+      miFinish:'',
+      summary:'',
     });
     this.state.dataSource.push(this.state)
   }
   onHandleApprove=()=>{
-    this.setState({visible2:false})
+    this.setState({
+      visible2:false,
+      dataSource:[]
+    })
     sessionStorage.setItem("Approve",JSON.stringify(this.state.carApprove))
     const dataWaitApprove = JSON.parse(sessionStorage.getItem("Approve"))
-
-    // console.log('data',dataWaitApprove.push(this.state.carApprove))
-    // console.log('data',dataWaitApprove)
     sessionStorage.setItem("Approve",JSON.stringify(dataWaitApprove))
   }
   showModal = () => {
